@@ -1,0 +1,81 @@
+
+
+Regular expressions 1. Special characters
+
+The following characters are the meta characters that give special meaning to the regular expression search syntax:
+
+\   the backslash escape character.
+The backslash gives special meaning to the character following it. For example, the combination "\n" stands for the newline, one of the control characters.
+http://www.fon.hum.uva.nl/praat/manual/Regular_expressions_5__Special_control_characters.html
+The combination "\w" stands for a "word" character, one of the convenience escape sequences while "\1" is one of the substitution special characters.
+http://www.fon.hum.uva.nl/praat/manual/Regular_expressions_6__Convenience_escape_sequences.html
+http://www.fon.hum.uva.nl/praat/manual/Regular_expressions_8__Substitution_special_characters.html
+Example: The regex "aa\n" tries to match two consecutive "a"s at the end of a line, inclusive the newline character itself.
+Example: "a\+" matches "a+" and not a series of one or "a"s.
+
+^    the caret is the anchor for the start of the string, or the negation symbol.
+http://www.fon.hum.uva.nl/praat/manual/Regular_expressions_3__Anchors.html
+Example: "^a" matches "a" at the start of the string.
+Example: "[^0-9]" matches any non digit.
+
+$    the dollar sign is the anchor for the end of the string.
+http://www.fon.hum.uva.nl/praat/manual/Regular_expressions_3__Anchors.html
+Example: "b$" matches a "b" at the end of a line.
+Example: "^$" matches the empty string.
+
+{ }    the opening and closing curly brackets are used as range quantifiers.
+http://www.fon.hum.uva.nl/praat/manual/Regular_expressions_2__Quantifiers.html
+Example: "a{2,3}" matches "aa" or "aaa".
+
+[ ]    the opening and closing square brackets define a character class to match a single character.
+
+The "^" as the first character following the "[" negates, and the match is for the characters not listed. The "-" denotes a range of characters. Inside a "[  ]" character class construction, most special characters are interpreted as ordinary characters.
+Example: "[d-f]" is the same as "[def]" and matches "d", "e" or "f".
+Example: "[a-z]" matches any lower-case characters in the alphabet.
+Example: "[^0-9]" matches any character that is not an ASCII digit.
+Example: A search for "[][()?<>$^.*?^]" in the string "[]()?<>$^.*?^" followed by a replace string "r" has the result "rrrrrrrrrrrrr". Here the search string is one character class and all the meta characters are interpreted as ordinary characters without the need to escape them.
+
+( )    the opening and closing parenthes3s are used for grouping characters (or other regexes).
+
+The groups can be referenced in both the search and the substitution phase. There also exist some special constructs with parentheses.
+http://www.fon.hum.uva.nl/praat/manual/Regular_expressions_8__Substitution_special_characters.html
+http://www.fon.hum.uva.nl/praat/manual/Regular_expressions_4__Special_constructs_with_parenthe.html
+Example: "(ab)\1" matches "abab".
+
+.    the dot matches any character except the newline symbol.
+Example: ".a" matches two consecutive characters where the last one is "a".
+Example: ".*\.txt$" matches all strings that end in ".txt".
+
+*    the asterisk is the match-zero-or-more quantifier.
+http://www.fon.hum.uva.nl/praat/manual/Regular_expressions_2__Quantifiers.html
+Example: "^.*$" matches an entire line. 
+
++    the plus sign is the match-one-or-more quantifier.
+
+?    the question mark is the match-zero-or-one quantifier. The question mark is also used in special constructs with parentheses and in changing match behaviour.
+http://www.fon.hum.uva.nl/praat/manual/Regular_expressions_4__Special_constructs_with_parenthe.html
+http://www.fon.hum.uva.nl/praat/manual/Regular_expressions_2__Quantifiers.html
+
+|    the vertical pipe separates a series of alternatives.
+Example: "(a|b|c)a" matches "aa" or "ba" or "ca".
+
+< >    the smaller and greater signs are anchors that specify a left or right word boundary.
+http://www.fon.hum.uva.nl/praat/manual/Regular_expressions_3__Anchors.html
+
+-   the minus sign indicates a range in a character class (when it is not at the first position after the "[" opening bracket or the last position before the "]" closing bracket.
+Example: "[A-Z]" matches any uppercase character.
+Example: "[A-Z-]" or "[-A-Z]" match any uppercase character or "-".
+
+&    the ampersand is the "substitute complete match" symbol.
+
+Links to this page:
+http://www.fon.hum.uva.nl/praat/manual/Regular_expressions_1__Special_characters.html
+
+
+
+
+
+
+
+
+
