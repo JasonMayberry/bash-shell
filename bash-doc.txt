@@ -1,0 +1,738 @@
+
+
+
+
+          NNNNX0d.     :NX.     ;ONNNXx.  lNd    NO
+          MM.  xMK    .WMM0     MM.  :WN  dMk    MK
+          MMkdkWW;    OMl0Mc    xWNxl,    dMXdddOMK
+          MMc;:kMK   cMWlxMW.     'cdXMx  dMK:::dMK
+          MM. .:MW  .WWlllkM0   MK.  ;MM  dMk    MK
+          XXXXX0d.  kXc    OX;  ;kXNNKx'  lXo    XO
+
+
+
+
+# Terminal Programs and CheatSheet 
+
+
+qalc ........................ Calculator
+vim ......................... Text Editor
+vim example.txt ............. Open Text Editor and create a new file
+nano ........................ Text Editor
+links bing.com .............. Text Web Browser
+links2 -g ................... Graphical Web Browser
+pdflatex example.tex ........ Compile .tex files into .pdf
+jp2a example.jpeg ........... Converts .jpg or .jpeg files into ASCII art
+cal ......................... Shows the default calendar for the current month
+cal 2019 .................... Shows the default calendar for the current year
+history ..................... Shows the BASH history in a numbered list
+cmatrix ..................... Shows the Matrix
+tree ........................ list contents of directories in a tree-like format
+zathura example.pdf ......... PDF Viewer, after open s key to full-screen q key to Quit
+apropos quarry ............... Display Appropriate Commands
+chmod ....................... Ch-ange the mod-e (permissions) of a file or directory
+                              ¯¯          ¯¯¯
+see ......................... Opens text in less and images in viewer
+
+locate (file name) .......... Find Files/Directories - To update the command sudo updatedb
+You can also use wildcards to match one or more files, such as "*" (for all files) or "?" (to match one character).
+
+
+
+
+## A Collection Of Useful BASH Scripts from: 
+   https://www.ostechnix.com/collection-useful-bash-scripts-heavy-commandline-users/
+cheat ....................... Linux Commands cheat sheet, pip required
+qrify ....................... Turns the given string into a qr code
+todo ........................ Command line todo list manager
+short ....................... URL Shortener
+ytview ...................... Watch YouTube from Terminal
+
+
+ 
+
+
+
+
+
+
+
+# Add some helpful aliases to end of ~/.bashrc file
+alias l.='ls -d .* --color=auto'
+alias ll='ls -l --color=auto'
+alias lsv='ls --format=single-column'
+alias chrome='chromium-browser'
+alias ff='firefox'
+alias linksd='links duckduckgo.com'
+alias links2d='links2 -g duckduckgo.com'
+alias files='thunar'
+alias hist='history'
+alias clr='clear'
+alias desk='cd ~/Desktop/'
+alias seepdf='zathura'
+alias editbashrc='vi ~/.bashrc'
+alias resetbashrc='source ~/.bashrc'
+
+
+
+
+
+
+
+
+
+
+
+
+# Keyboard Shortcuts
+Window Switcher    = <Alt><Shift>TAB
+Workspace Switch   = <Control><Alt>Right and Left
+Close Window       = <fn><Alt>F4
+Maximize Window    = <fn><Alt>10
+Terminal           = <Control><Alt>t
+Log Out            = <Control><Alt><Delete>
+Screenshot         = <Shift><Control>p
+Copy in Terminal   = <Shift><Control>c
+Paste in Terminal  = <Shift><Control>v
+Console(1-6) Mode  = <fn><Control><Alt>F1 - F6
+Desktop Mode       = <fn><Control><Alt>F7
+
+
+
+
+
+
+
+
+
+
+
+
+..... Less Navigation .....
+Command .......... Action
+---------------------------
+b ................ Scroll back one page
+Space Bar ........ Scroll forward one page
+G ................ Move to the end of the text file
+g ................ Move to the beginning of the text file
+/characters ...... Search forward to the next occurrence of characters 
+n ................ Search for the next occurrence of the previous search
+less --help ...... SUMMARY OF LESS COMMANDS
+q ................ Quit less
+
+
+
+
+
+
+..... Links Navigation .....
+---------------------------
+Ctrl-p   ^P     scroll up
+Ctrl-n   ^N     scroll down
+         [      scroll left
+         ]      scroll right
+Space Bar       Page Down
+b               Page Up
+
+
+
+
+
+
+
+
+ # Checksum Tools
+   https://help.ubuntu.com/community/HowToSHA256SUM
+md5sum     MD5 checksum tool
+¯¯¯¯¯¯
+sha1sum    SHA-1 checksum tool
+¯¯¯¯¯¯¯
+sha256sum  SHA-256 checksum tool
+¯¯¯¯¯¯¯¯¯
+Example of using sha256sum:
+sha256sum ubuntu-mate-16.10-desktop-amd64.iso
+sudo apt install gtkhash
+
+# Checksum Tools for MAC:
+SHA1:   $ shasum path/file.iso
+SHA256: $ shasum -a 256 path/file.iso
+
+
+
+
+
+
+
+
+
+
+          # Cursor Movement in Terminal
+   Ctrl-a - Beginning    |      Ctrl-e - End
+Alt-f - Forward one word | Alt-b - Backward one word
+
+
+              Ctrl-l   Clear screen
+
+
+
+
+
+
+
+
+Alt-l  Convert the characters from the cursor location to the end of the word to lowercase.
+Alt-u  Convert the characters from the cursor location to the end of the word to uppercase.
+
+
+
+
+
+
+
+
+
+
+# "Cutting and Pasting" called (Killing and Yanking)
+# "Clipboard"           called (kill-ring)
+
+Ctrl-k         Kill text from cursor to end of line.
+Ctrl-u         Kill text from cursor to beginning of the line.
+Alt-Backspace  If cursor is at the beginning of a word, kill the previous word.
+Ctrl-y         Yank text from the kill-ring and insert it at the cursor location.
+
+
+
+
+
+
+
+
+
+
+From: man page under “READLINE”.
+
+# TAB Completion Commands
+  Alt-?   Display a list of possible completions.
+                  # On most systems you can also do this by pressing the Tab key a second time.
+  Alt-*   Insert all possible completions. This is useful when you want to use more than one possible match.
+
+# Programmable TAB Completion
+You can add completion rules. Ubuntu has a set defined by default. To see enter:
+[me@linuxbox ~]$ set | less
+                 ¯¯¯¯¯¯¯¯¯¯
+
+
+
+
+
+
+
+
+
+
+# Searching HISTORY | View history list
+   See: man history for more details.
+   [me@linuxbox ~]$ history | less
+                    ¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+   Let's say we want to find the commands we used to list /usr/bin.
+   This is one way we could do this:
+   [me@linuxbox ~]$ history | grep /usr/bin
+                    ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+   One of the results:
+   88  ls -l /usr/bin > ls-output.txt
+   
+   The 88 is the line number of the command in the history list.
+   We could use this command called history expansion.
+   
+   [me@linuxbox ~]$ !88
+                    ¯¯¯
+   ########################################################################################
+   ##  Ctrl-r to (reverse-i-search)`':  ####   Enter to execute   ####   Ctrl-j to copy  ##
+   ########################################################################################
+   To start incremental search press Ctrl-r followed by the text we are looking for.
+   When we find it, we can either press Enter to execute the command or
+   Press Ctrl-j to copy the line from the history list to the current command line.
+   To find the next occurrence of the text (moving “up” the history list), press Ctrl-r again. 
+   To quit searching, press either Ctrl-g or Ctrl-c.
+   
+   Alt-<    Move to the beginning (top) of the history list.
+   Alt->    Move to the end (bottom) of the history list, i.e., the current command line.
+   Ctrl-r   Reverse incremental search. This searches incrementally from the current command line up the history list.
+   Alt-p    Reverse search, nonincremental. With this key, type in the search string and press enter before the search is performed.
+   Alt-n    Forward search, nonincremental.
+   Ctrl-o   Execute the current item in the history list and advance to the next one. 
+            This is handy if we are trying to re-execute a sequence of commands in the history list.
+
+
+
+
+
+
+
+
+
+
+# File PERMISSIONS
+  Example:
+  [me@linuxbox ~]$ ls -l foo.txt
+  -rw-rw-r-- 1 me me 0 2016-03-06 14:52 foo.txt
+
+                  Owner Group World
+                   rwx  rwx  rwx
+                   ↘️    ⬇️   ↙️
+                 - | rw-rw-r-- 
+first character ⬆︎  | The remaining nine characters of the file attributes,
+is the file type   | called the file mode, represent the read, write, and 
+                   | execute permissions for the file's owner, the file's 
+                   | group owner, and everybody else.
+
+     ######################################################################
+     +-----------+--------------------------------------------------------+
+     | Attribute |                    File Type                           |
+     +-----------+--------------------------------------------------------+
+     |   -       |  A regular file.                                       |
+     ------------+--------------------------------------------------------+
+     |   d       |  A directory.                                          |
+     +-----------+--------------------------------------------------------+
+     |   l       |  A symbolic link. Notice that with symbolic links,     |
+     |           |  the remaining file attributes are always “rwxrwxrwx”  |
+     |           |  and are dummy values. The real file attributes are    |
+     |           |  those of the file the symbolic link points to.        |
+     +-----------+--------------------------------------------------------+
+     |   c       |  A character special file. This file type refers       |
+     |           |  to a device that handles data as a stream of bytes,   |
+     |           |  such as a terminal or /dev/null.                      |
+     +-----------+--------------------------------------------------------+
+     |   b       |  A block special file. This file type refers to a      |
+     |           |  device that handles data in blocks, such as a         |
+     |           |  hard drive or DVD drive.                              |
+     +-----------+--------------------------------------------------------+
+
+##################################################################################
++------------+--------------------------------+----------------------------------+
+|  Attribute |         Files                  |         Directories              |
++------------+--------------------------------+----------------------------------+
+|  r         |   Allows a file to be          |   Allows a directory's contents  |
+|            |   opened and read.             |   to be listed if the execute    |
+|            |                                |   attribute is also set.         |
++------------+--------------------------------+----------------------------------+
+|  w         |   Allows a file to be          |   Allows files within a          |
+|            |   written to or truncated,     |   directory to be created,       |
+|            |   however this attribute       |   deleted, and renamed if        |
+|            |   does not allow files to      |   the execute attribute          |
+|            |   be renamed or deleted.       |   is also set.                   |
+|            |   The ability to delete or     |                                  |
+|            |   rename files is determined   |                                  |
+|            |   by directory attributes.     |                                  |
+|            |                                |                                  |
++------------+--------------------------------+----------------------------------+
+|  x         |   Allows a file to be treated  |   Allows a directory to be       |
+|            |   as a program and executed.   |   entered, e.g., cd directory.   |
+|            |   Program files written in     |                                  |
+|            |   scripting languages must     |                                  |
+|            |   also be set as readable      |                                  |
+|            |   to be executed.              |                                  |
+|            |                                |                                  |
++------------+--------------------------------+----------------------------------+
+
+-rwx------   |   A regular file that is readable, writable, and executable 
+             |   by the file's owner. No one else has any access.
+             |
+-rw-------   |   A regular file that is readable and writable by the 
+             |   file's owner. No one else has any access.
+             |
+-rw-r--r--   |   A regular file that is readable and writable by the file's 
+             |   owner. Members of the file's owner group may read the file. 
+             |   The file is world-readable.
+             |
+-rwxr-xr-x   |   A regular file that is readable, writable, and executable 
+             |   by the file's owner. The file may be read and executed by everybody else.
+             |
+-rw-rw----   |   A regular file that is readable and writable by the file's 
+             |   owner and members of the file's group owner only.
+             |
+lrwxrwxrwx   |   A symbolic link. All symbolic links have “dummy” permissions. 
+             |   The real permissions are kept with the actual file pointed 
+             |   to by the symbolic link.
+             |
+drwxrwx---   |   A directory. The owner and the members of the owner group 
+             |   may enter the directory and create, rename and remove 
+             |   files within the directory.
+             |
+drwxr-x---   |   A directory. The owner may enter the directory and create, 
+             |   rename, and delete files within the directory. Members 
+             |   of the owner group may enter the directory but cannot 
+             |   create, delete, or rename files.
+
+                ##################################
+                +--------+----------+------------+
+                | Octal  |  Binary  |  File Mode |
+                +--------+----------+------------+
+                |   0    |   000    |    ---     |
+                |   1    |   001    |    --x     |
+                |   2    |   010    |    -w-     |
+                |   3    |   011    |    -wx     |
+                |   4    |   100    |    r--     |
+                |   5    |   101    |    r-x     |
+                |   6    |   110    |    rw-     |
+                |   7    |   111    |    rwx     |
+                +--------+----------+------------+
+                By using three octal digits, we can 
+                set the file mode for the owner, 
+                group owner, and world.
+
+[me@linuxbox ~]$ > foo.txt #Create or overwrite with nothing in it!
+
+[me@linuxbox ~]$ ls -l foo.txt  ⬅︎  🌶  🐘
+  ↘️   👀       ¯¯¯¯¯¯¯¯¯¯¯¯¯
+-rw-rw-r-- 1 me me 0 2016-03-06 14:52 foo.txt 
+[me@linuxbox ~]$ chmod 600 foo.txt
+[me@linuxbox ~]$ ls -l foo.txt
+-rw------- 1 me me 0 2016-03-06 14:52 foo.txt
+
+By passing the argument “600”, we were able to set the permissions of the owner to read 
+and write while removing all permissions from the group owner and world. Though remembering 
+the octal to binary mapping may seem inconvenient, we will usually have only to use a few 
+common ones: 7 (rwx), 6 (rw-), 5 (r-x), 4 (r--), and 0 (---).
+chmod also supports a symbolic notation for specifying file modes. 
+¯¯¯¯¯
+ Symbolic notation is divided into three parts.
+   • Who the change will affect.
+   • Which operation will be performed.
+   • What permission will be set.
+
+                 To specify who is affected, a combination of the characters 
+                      “u”, “g”, “o”, and “a” is used as shown in Table.
+         +--------+-----------------------------------------------------------------+
+         | Symbol |                         Meaning                                 |
+         +--------+-----------------------------------------------------------------+
+         |   u    |  Short for “user” but means the file or directory owner.        |
+         |   g    |  Group owner.                                                   |
+         |   o    |  Short for “others” but means world.                            |
+         |   a    |  Short for “all.” This is the combination of “u”, “g”, and “o”. |
+         +--------+-----------------------------------------------------------------+
+
+If no character is specified, “all” will be assumed. The operation may be a “+” indicating that 
+a permission is to be added, a “-” indicating that a permission is to be taken away, 
+or a “=” indicating that only the specified permissions are to be applied and that all others 
+are to be removed.
+Permissions are specified with the “r”, “w”, and “x” characters. 
+
+This Table provides some examples of symbolic notation:
++------------+--------------------------------------------------------------------------------------------+
+| Notation   |                          Meaning of Symbolic Notation                                      |
++------------+--------------------------------------------------------------------------------------------+
+|  u+x       |  Add execute permission for the owner.                                                     |
++------------+--------------------------------------------------------------------------------------------+
+|  u-x       |  Remove execute permission from the owner.                                                 |
++------------+--------------------------------------------------------------------------------------------+
+|  +x        |  Add execute permission for the owner, group, and world. This is equivalent to a+x.        |
++------------+--------------------------------------------------------------------------------------------+
+|  o-rw      |  Remove the read and write permissions from anyone besides the owner and group owner.      |
++------------+--------------------------------------------------------------------------------------------+
+|  go=rw     |  Set the group owner and anyone besides the owner to have read and write permission.       |
+|            |  If either the group owner or the world previously had execute permission, it is removed.  |
++------------+--------------------------------------------------------------------------------------------+
+|  u+x,go=rx |  Add execute permission for the owner and set the permissions for the group and others     |
+|            |  to read and execute. Multiple specifications may be separated by commas.                  |
++------------+--------------------------------------------------------------------------------------------+
+
+Some people prefer to use octal notation, and some folks really like the symbolic. 
+Symbolic notation does offer the advantage of allowing us to set a single attribute 
+without disturbing any of the others.
+
+
+Here are some examples of using chmod with symbolic notation to set these special permissions.
+
+Here’s an example of assigning setuid to a program:
+chmod u+s program
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+Next, here’s and example of assigning setgid to a directory:
+chmod g+s dir
+¯¯¯¯¯¯¯¯¯¯¯¯¯
+Finally, here’s an example of assigning the sticky bit to a directory:
+chmod +t dir
+¯¯¯¯¯¯¯¯¯¯¯¯
+When viewing the output from ls, you can determine the special permissions.
+Here are some examples. First, an example of a program that is setuid:
+-rwsr-xr-x
+¯¯¯¯¯¯¯¯¯¯
+Here’s an example of a directory that has the setgid attribute:
+drwxrwsr-x
+¯¯¯¯¯¯¯¯¯¯
+Here’s an example of a directory with the sticky bit set:
+drwxrwxrwt
+¯¯¯¯¯¯¯¯¯¯
+
+
+
+
+
+
+
+
+# What programs are doing and how to TERMINATE PROCESSES
+
+  ● ps – Report a snapshot of current processes $ ps x  for more info
+  ● top – Display tasks                           ¯¯¯¯
+  ● jobs – List active jobs
+  ● bg – Place a job in the background $ bg %1 ⬅︎ job number
+  ● fg – Place a job in the foreground $ fg %1 ⬅︎ job number
+  ● kill – Send a signal to a process
+  ● killall – Kill processes by name
+  ● shutdown – Shutdown or reboot the system
+
+To launch a program so that it is immediately placed in the background, 
+we follow the command with an ampersand (&) character.
+[me@linuxbox ~]$ gedit &
+                 ¯¯¯¯¯¯¯
+# Stopping (Pausing) a Process
+  Sometimes we'll want to stop a process without terminating it. This is often 
+  done to allow a foreground process to be moved to the background. To stop a 
+  foreground process and place it in the background, press Ctrl-z. Let's try it. 
+  At the command prompt, type xl- ogo, press the Enter key, and then press Ctrl-z:
+[me@linuxbox ~]$ gedit
+[1]+ Stopped gedit
+We can either continue the program's execution in the foreground, using the fg command, 
+or resume the program's execution in the background with the bg command:
+[me@linuxbox ~]$ bg %1
+                 ¯¯¯¯¯
+By launching a program from the command line, we might be able to see error messages that 
+would otherwise be invisible if the program were launched graphically. Sometimes, 
+a program will fail to start up when launched from the graphical menu. By launching it 
+from the command line instead, we may see an error message that will reveal the problem. 
+Also, some graphical programs have interesting and useful command line options.
+
+
+
+
+
+
+
+
+# Signals "KILL"
+The kill command is used to “kill” processes.
+  [me@linuxbox ~]$ xlogo &
+  [1] 28401
+  [me@linuxbox ~]$ kill 28401
+  [1]+  Terminated              xlogo
+  We first launch xlogo in the background. The shell prints the jobspec and the PID of the 
+  background process. Next, we use the kill command and specify the PID of the process we 
+  want to terminate. We could have also specified the process using a jobspec 
+  (for example, %1) instead of a PID.
+When a process is terminated with kill, it is given no opportunity to “clean up” after 
+itself or save its work. For this reason, the KILL signal should be used only as a last 
+resort when other termination signals fail.
+
+The kill command is used to send signals to programs. 
+Its most common syntax looks like this:
+kill [-signal] PID...
+Example: $ kill -1 13546  OR  $ kill -INT 13601
+           ¯¯¯¯¯¯¯¯¯¯¯¯¯        ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+Note that signals may be specified either by number or by name, including the name prefixed with the letters SIG.
++--------+------+--------------------------------------------------------------------------------------------+
+|Number/ | Name |                                    Meaning                                                 |
+| Signal |      |                                                                                            |
++--------+------+--------------------------------------------------------------------------------------------+
+|   2    | INT  | Interrupt. This performs the same function as a Ctrl-c sent from the terminal.             |
+|        |      | It will usually terminate a program.                                                       |
++--------+------+--------------------------------------------------------------------------------------------+
+|   18   | CONT | Continue. This will restore a process after a STOP or TSTP signal.                         |
+|        |      | This signal is sent by the bg and fg commands.                                             |
++--------+------+--------------------------------------------------------------------------------------------+
+|   19   | STOP | Stop. This signal causes a process to pause without terminating.                           |
+|        |      | Like the KILL signal, it is not sent to the target process, and thus it cannot be ignored. |
++--------+------+--------------------------------------------------------------------------------------------+
+# KILLALL
+   It's also possible to send signals to multiple processes matching a specified program or
+   username by using the KILLALL command. Here is the syntax:
+   killall [-u user] [-signal] name...
+   Example: [me@linuxbox ~]$ killall xlogo
+                             ¯¯¯¯¯¯¯¯¯¯¯¯¯
+# Shutting Down the System
+  ------------------------->   (HALT) (POWEROFF) (REBOOT) (SHUTDOWN)
+  [me@linuxbox ~]$ sudo reboot
+  The shutdown command is a bit more interesting. With it, we can specify which of the actions to perform 
+  (halt, power down, or reboot) and provide a time delay to the shut- down event. 
+  Most often it is used like this to halt the system:
+  [me@linuxbox ~]$ sudo shutdown -h now 
+  or like this to reboot the system:
+  [me@linuxbox ~]$ sudo shutdown -r now
+
+
+
+
+
+
+
+
+
+
+# The ENVIRONMENT
+  ● printenv – Print part or all of the environment
+      [me@linuxbox ~]$ printenv | less
+      [me@linuxbox ~]$ echo $HOME   # View the contents of a variable
+
+  ● set – Set shell options
+      [me@linuxbox ~]$ set | less   # Display both the shell and environment variables
+
+  ● export – Export environment to subsequently executed programs
+  ● alias – Create or View an alias for a command
+
+# Which Files Should We Modify?
+   🐘 It is always a good idea to CREATE A BACKUP COPY of the file first! 🐘 
+      [me@linuxbox ~]$ cp .bashrc .bashrc.bak
+                       ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+  As a general rule, to add directories to your PATH or define additional environment variables, 
+  place those changes in .bash_profile (or the equivalent, according to your distribution; 
+  for example, Ubuntu uses .profile). For everything else, place the changes in .bashrc
+                        _______________
+#######################|    .bashrc    |#########################
++----------------------¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯------------------------+
+|   EXAMPLE:                                                    |
+|     Add the following lines to the end of the .bashrc file:   |
+|   # Change umask to make directory sharing easier             |
+|   umask 0002                                                  |
+|   # Ignore duplicates in command history and increase         |
+|   # history size to 1000 lines                                |
+|   export HISTCONTROL=ignoredups                               |
+|   export HISTSIZE=1000                                        |
+|   # Add some helpful aliases                                  |
+|   alias l.='ls -d .* --color=auto'                            |
+|   alias ll='ls -l --color=auto'                               |
++---------------------------------------------------------------+
+  The changes we have made to our .bashrc will not take effect until we close our terminal session and 
+  start a new one However, we can force bash to reread the modified .bashrc file with the following command:
+  [me@linuxbox ~]$ source ~/.bashrc
+
+
+
+
+
+
+
+
+
+
+
+# vi - Vim
+
+## Navigation
+
+     ^
+     k
+< h     l >
+     j
+     v
+
+w       move forward one word at a time
+b       move back one word at a time
+
+fl      foward to the next letter l     (on current line)
+Fl      backward to the next letter l   (on current line)
+
+0       move to beginning of the line
+$       move to the end of the line
+
+gg      go to top of file
+G       go to bottom of file
+
+%       go to next (),{} or [] on that line
+
+Ctrl-i  forward navigation
+Ctrl-o  backwards navigation
+
+:4      go to line number 4
+
+:/searchTerm <enter> press n for next, N for previous
+
+
+
+
+## Inserting Text
+
+i       insert text
+A       Append to the end of the line
+
+
+o       open a new line below for inserting text on
+O       Open a new line above for inserting text on
+
+
+cw      change word
+C       Change text from cursor to end of line
+
+
+yy      yank(copy) line
+p       put(paste) line
+
+
+u       undo
+Ctrl-r  redo
+
+
+
+
+## Deleting
+
+x       delete character
+dw      delete word
+dd      delete line
+D       Delete text from cursor to end of line
+
+
+
+
+## Search and Replace:
+
+:%s/word/replacementWord/g
+:, % the whole document, s substitute, /word/replacementWord/, g global
+
+
+:%s/word/replacementWord/gc
+:, % the whole document, s substitute, /word/replacementWord/, g global, c conditional prompt(Y/N)
+
+
+:3,9s/word/replacementWord/g
+:, 3,9 from line 3 to 9, s substitute, /word/replacementWord/, g global
+
+
+
+
+## Other
+
+:!bashCommand   Run a BASH command from inside Vim
+:h            Help - :q to quit help
+:w Ctrl-d     List every command that can be used that starts with w
+:w            Write(Save)
+:wq           Write(Save) and quite :x or :exit also save and quite
+:q!           quit without saving
+
+
+
+
+In this chapter, we will look at two tools that are used to find files on a system.
+    ● locate – Find files by name
+    ● find – Search for files in a directory hierarchy
+  We will also look at a command that is often used with file-search commands to process the resulting list of files.
+    ● xargs – Build and execute command lines from standard input
+  In addition, we will introduce a couple of commands to assist us in our explorations.
+    ● touch – Change file times
+    ● stat – Display file or file system status
+
+
+
+
+
+
+
+   ¯¯¯ ♥︎ ✎ ★ ☂ ☕︎ ✂︎ ♣︎ ✝ ▶︎ ◀︎ ▲ ▼ ☞ ❤ ✓ → ← ⬅︎ ⬆︎ ⬇︎ ⬌ ↘︎
+
+
+   😀   😎   👀   👁   🐗   🐛   🐘   🐸   🔥   🌶   🚀   💾   🔋   📬
+
+
+   📁   📓   📝   🔐   🔎   🔍   💙   ✔️   🕑   🗯   💬   💲
+
+
+   ➡️   ⬅️   ⬆️   ⬇️   ↗️   ↘️   ↙️   ↖️   ↕️   ↔️
