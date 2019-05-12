@@ -619,8 +619,11 @@ Note that signals may be specified either by number or by name, including the na
 
 
 
-
-
+   ii      ii  **
+    ii    ii   ii
+     ii  ii    ii
+      iiii     ii
+       ii      ii
 
 # vi - Vim
 
