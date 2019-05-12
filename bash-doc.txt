@@ -152,6 +152,8 @@ sha256sum  SHA-256 checksum tool
 ¯¯¯¯¯¯¯¯¯
 Example of using sha256sum:
 sha256sum ubuntu-mate-16.10-desktop-amd64.iso
+
+# Install GtkHash
 sudo apt install gtkhash
 
 # Checksum Tools for MAC:
