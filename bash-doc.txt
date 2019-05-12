@@ -58,7 +58,11 @@ ytview ...................... Watch YouTube from Terminal
 
 
 # Add some helpful aliases to end of ~/.bashrc file
-alias bash-doc='wget -qO- https://raw.githubusercontent.com/JasonMayberry/bash-shell/master/bash-doc.txt | less'
+alias docs='wget -qO- 'https://raw.githubusercontent.com/JasonMayberry/bash-shell/master/All-notes-alias-list.txt | less'
+alias bashdoc='wget -qO- https://raw.githubusercontent.com/JasonMayberry/bash-shell/master/bash-doc.txt | less'
+alias a-zbash='wget -qO- https://raw.githubusercontent.com/JasonMayberry/bash-shell/master/a-z-index-of-bash-commands | less'
+alias regdoc='wget -qO- https://raw.githubusercontent.com/JasonMayberry/bash-shell/master/Regular-Expressions.txt | less'
+alias bashexamples='wget -qO- https://raw.githubusercontent.com/JasonMayberry/bash-shell/master/30-Bash-Script-Examples.txt | less'
 alias l.='ls -d .* --color=auto'
 alias ll='ls -l --color=auto'
 alias lsv='ls --format=single-column'
