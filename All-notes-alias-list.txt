@@ -1,0 +1,6 @@
+
+docs ............ All-notes-alias-list.txt
+bashdoc ......... bash-doc.txt
+a-zbash ......... a-z-index-of-bash-commands
+regdoc .......... Regular-Expressions.txt
+bashexamples .... 30-Bash-Script-Examples.txt
