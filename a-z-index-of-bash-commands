@@ -1,6 +1,8 @@
 
 An A-Z Index of the Linux command line: bash + utilities.
+Source: https://ss64.com/bash/
 
+a
   alias    Create an alias •
   apropos  Search Help manual pages (man -k)
   apt-get  Search for and install software packages (Debian/Ubuntu)
