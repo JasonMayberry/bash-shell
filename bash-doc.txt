@@ -21,6 +21,7 @@ vim example.txt ............. Open Text Editor and create a new file
 nano ........................ Text Editor
 links bing.com .............. Text Web Browser
 links2 -g ................... Graphical Web Browser
+wget -qO- webLink.html ...... Quietly print website source code to stdout
 pdflatex example.tex ........ Compile .tex files into .pdf
 figlet ...................... Converts words into ASCII art
 jp2a example.jpeg ........... Converts .jpg or .jpeg files into ASCII art
@@ -86,7 +87,7 @@ alias files='thunar'
 alias hist='history'
 alias desk='cd ~/Desktop/'
 alias seepdf='zathura'
-alias editbashrc='vi ~/.bashrc'
+alias ebashrc='vi ~/.bashrc'
 alias rfbashrc='source ~/.bashrc'
 
 
