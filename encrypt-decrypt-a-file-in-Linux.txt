@@ -1,0 +1,53 @@
+
+                                     How to easily encrypt/decrypt a file in Linux with gpg
+
+From the command line
+
+   Let's say you have a file, ~/Documents/important.docx, that you want to password protect. Using gpg, you would do the
+   following.
+
+    1. Open a terminal window.
+    2. Change to the ~/Documents directory with the command cd ~/Documents.
+    3. Encrypt the file with the command gpg -c important.docx.
+    4. Enter a unique password for the file and hit Enter.
+    5. Verify the newly typed password by typing it again and hitting Enter.
+
+   You should now see the file important.docx.gpg in the ~/Documents folder. To decrypt that file, do the following.
+
+    1. Open a terminal window.
+    2. Change to the ~/Documents directory with the command cd ~/Documents.
+    3. Decrypt the file with the command gpg -d important.docx.gpg.
+    4. When prompted, enter the decryption password you created when encrypting the file.
+
+   You could send that file to a recipient and, as long as they have gpg installed, they can decrypt the file with the
+   password you used for encryption. If they are a Windows user, they can always install Gpg4win.
+
+The GUI way
+
+   If you happen to be a GNOME 3 user (or any Linux desktop that makes use of either Nautilus or GNOME Files), you can add a
+   contextual menu entry to the file manager for encryption. Here's how (I'll demonstrate on Ubuntu GNOME 16.04).
+
+    1. Open a terminal window.
+    2. Issue the command sudo apt-get install seahorse-nautilus.
+    3. Type your sudo password and hit Enter.
+    4. If prompted, type y and hit Enter.
+    5. Allow the installation to complete.
+
+   Open the file manager and navigate to the ~/Documents directory. Right-click the important.docx file and then click the
+   Encrypt... entry (Figure A). You will be prompted to enter and then verify an encryption password. Once you've verified the
+   password, the important.docx.gpg file will appear in ~/Documents.
+
+
+        Encrypting a file within Nautilus.
+
+   The decryption process is the same.
+
+    1. Open the file manager.
+    2. Navigate to the encrypted file.
+    3. Right-click the encrypted file.
+    4. Click Open with Decrypt File.
+    5. When prompted, give the new file a name and click Enter.
+    6. When prompted, enter the decryption password and click Enter.
+
+   The encrypted file will now be decrypted and ready to use.
+
