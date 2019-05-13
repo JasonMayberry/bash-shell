@@ -22,6 +22,7 @@ nano ........................ Text Editor
 links bing.com .............. Text Web Browser
 links2 -g ................... Graphical Web Browser
 pdflatex example.tex ........ Compile .tex files into .pdf
+figlet ...................... Converts words into ASCII art
 jp2a example.jpeg ........... Converts .jpg or .jpeg files into ASCII art
 cal ......................... Shows the default calendar for the current month
 cal 2019 .................... Shows the default calendar for the current year
