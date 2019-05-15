@@ -87,6 +87,7 @@ alias files='thunar'
 alias hist='history'
 alias desk='cd ~/Desktop/'
 alias seepdf='zathura'
+# alias subl='sublime-text' # open using subl or sublime-text by default
 alias ebashrc='vi ~/.bashrc'
 alias rbashrc='source ~/.bashrc'
 
