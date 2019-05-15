@@ -1,0 +1,71 @@
+
+                                         How to run mysql command from terminal?
+
+
+ $ mysql   -u  root   -p
+ Enter Password:
+
+   Note: Default user name and password is root
+
+You can enter a database from the command line like this:
+ $ mysql -u root -p database_name
+
+   Enter your password, then you can run your mysql commands.
+
+   Another way is to use:
+
+ mysql -u root -p database_name << eof
+ DELETE FROM `wp_posts` WHERE `post_type` = "attachment"
+ eof
+
+   Or try this:
+
+ mysql --host *HOST_IP* --user *USER* --password=*PASSWORD* -D *DATABASE_NAME* -e "DELETE FROM `wp_posts` WHERE `post_type` = "attachment" ;
+
+   Using the MySQL CLI client.
+
+ $ mysql -u <user> -p
+ mysql> use <your-database>
+ mysql> DELETE FROM `wp_posts` WHERE `post_type` = "attachment"
+
+   Notice that I'm using -u and username, but in -p I'm not setting anything. MySQL will ask you for your password.
+
+   And if you're trying to use it inline, you can use
+
+ $ mysql -u <user> -p <your-database> -e "DELETE FROM `wp_posts` WHERE `post_type` = 'attachment'"
+
+   Here, notice that I'm using also -e argument. It stands for execute.
+
+   Pro tip
+
+   In MySQL client you can use:
+
+ mysql> show databases;
+
+   if you want to view all dabatases in your server. And you can use:
+
+ mysql> use <database>;
+ mysql> show tables;
+
+   if you want to view all tables into a database.
+
+   I'm using $ and mysql> as prompts, $ means your Linux terminal, and mysql>, MySQL client.
+
+
+   There is a series of steps to Execute MySQL in Linux Ubuntu Terminal.
+
+    1. Execute MySQL Client using the following command: mysql -u root -p
+    2. It is important to Create a New Database first using the command: create database demo_db;
+    3. Then you have to Authorize the Database using the command: grant all on demo_db.* to ‘testuser’ identified by
+       ‘12345’;
+    4. Then Log in from the Database itself using the command: mysql -u testuser -p
+    5. Then, you can actually start with the actual SQL Commands.
+
+   I referred to the article http://www.codingalpha.com/run-mysql-database-linux-ubuntu/ where they have explained
+   perfect steps to Execute MySQL in Linux Ubuntu! Hope I got your MySQL Running Perfectly.
+
+     * 1
+       Please note that mysql is the client, and not the server. Before starting the client, check that the server is
+       running by issuing sudo status mysql and if it is not running, start it with sudo start mysql. – Guss Dec 31 '15
+       at 20:37
+

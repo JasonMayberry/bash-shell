@@ -1,0 +1,103 @@
+
+Synchronizing Files and Directories
+***********************************
+A common strategy for maintaining a backup copy of a system involves keeping one or
+more directories synchronized with another directory (or directories) located on either the
+local system (usually a removable storage device of some kind) or a remote system. We
+might, for example, have a local copy of a website under development and synchronize it
+from time to time with the “live” copy on a remote web server.
+In the Unix-like world, the preferred tool for this task is rsync. This program can 
+synchronize both local and remote directories by using the rsync remote-update protocol,
+which allows rsync to quickly detect the differences between two directories and 
+perform the minimum amount of copying required to bring them into sync. This makes
+rsync very fast and economical to use, compared to other kinds of copy programs.
+rsync is invoked like this:
+
+  rsync options source destination
+
+    Where source and destination are one of the following:
+      ● A local file or directory
+      ● A remote file or directory in the form of [user@]host:path
+      ● A remote rsync server specified with a URI of rsync://[user@]host[:port]/path
+
+Note that either the source or the destination must be a local file. Remote-to-remote
+copying is not supported.
+
+Let’s try rsync out on some local files. First, let’s clean out our foo directory.
+[me@linuxbox ~]$ rm -rf foo/*
+
+Next, we’ll synchronize the playground directory with a corresponding copy in foo.
+[me@linuxbox ~]$ rsync -av playground foo
+
+We’ve included both the -a option (for archiving — causes recursion and preservation of
+file attributes) and the -v option (verbose output) to make a mirror of the playground
+directory within foo. While the command runs, we will see a list of the files and 
+directories being copied. At the end, we will see a summary message like this indicating the
+amount of copying performed:
+  sent 135759 bytes received 57870 bytes
+  total size is 3230 speedup is 0.02
+  387258.00 bytes/sec
+
+If we run the command again, we will see a different result.
+[me@linuxbox ~]$ rsync -av playground foo
+building file list ... done
+sent 22635 bytes received 20 bytes
+total size is 3230 speedup is 0.14
+45310.00 bytes/sec
+
+Notice that there was no listing of files. This is because rsync detected that there were
+no differences between ~/playground and ~/foo/playground, and therefore it
+didn’t need to copy anything. If we modify a file in playground and run rsync again:
+  [me@linuxbox ~]$ touch playground/dir-099/file-Z
+    24718 – Archiving and Backup
+  [me@linuxbox ~]$ rsync -av playground foo
+    building file list ... done
+    playground/dir-099/file-Z
+    sent 22685 bytes received 42 bytes 45454.00 bytes/sec
+    total size is 3230 speedup is 0.14
+We see that rsync detected the change and copied only the updated file.
+
+There is a subtle but useful feature we can use when we specify an rsync source. Let’s
+consider two directories.
+[me@linuxbox ~]$ ls
+  source
+  destination
+
+Directory source contains one file named file1 and directory destination is
+empty. If we perform a copy of source to destination like so:
+[me@linuxbox ~]$ rsync source destination
+  then rsync copies the directory source into destination.
+[me@linuxbox ~]$ ls destination
+  source
+
+However, if we append a trailing / to the source directory name, rsync will copy only
+the contents of the source directory and not the directory itself.
+[me@linuxbox ~]$ rsync source/ destination
+[me@linuxbox ~]$ ls destination
+  file1
+
+This is handy if we want only the contents of a directory copied without creating another
+level of directories within the destination. We can think of it as being like source/* in
+its outcome, but this method will copy all of the source directory’s content including the
+hidden files.
+As a practical example, let’s consider the imaginary external hard drive that we used 
+earlier with tar. If we attach the drive to our system and it is mounted at /media/
+BigDisk once again, we can perform a useful system backup by first creating a 
+directory named /backup on the external drive and then using rsync to copy the most 
+important stuff from our system to the external drive.
+[me@linuxbox ~]$ mkdir /media/BigDisk/backup
+[me@linuxbox ~]$ sudo rsync -av --delete /etc /home /usr/local
+  /media/BigDisk/backup
+
+In this example, we copied the /etc, /home, and /usr/local directories from our
+system to our imaginary storage device. We included the --delete option to remove
+files that may have existed on the backup device that no longer existed on the source 
+device (this is irrelevant the first time we make a backup but will be useful on subsequent
+copies). Repeating the procedure of attaching the external drive and running this rsync
+command would be a useful (though not ideal) way of keeping a small system backed up.
+Of course, an alias would be helpful here, too. We could create an alias and add it to our
+.bashrc file to provide this feature.
+alias backup='sudo rsync -av --delete /etc /home /usr/local
+/media/BigDisk/backup'
+Now all we have to do is attach our external drive and run the backup command to do
+the job.
