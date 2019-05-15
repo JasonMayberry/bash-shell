@@ -2,6 +2,12 @@
                                          How to run mysql command from terminal?
 
 
+Remember to start the MySQL server:
+$ service mysql start
+More options at:
+https://raw.githubusercontent.com/JasonMayberry/bash-shell/master/Start-Stop-MySQL-Server-from-Command-Line.txt
+
+
  $ mysql   -u  root   -p
  Enter Password:
 
