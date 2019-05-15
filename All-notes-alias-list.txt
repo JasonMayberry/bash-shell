@@ -1,6 +1,9 @@
 
-docs ............ All-notes-alias-list.txt
-bashdoc ......... bash-doc.txt
-a-zbash ......... a-z-index-of-bash-commands
-regdoc .......... Regular-Expressions.txt
-bashexamples .... 30-Bash-Script-Examples.txt
+docs .............. All-notes-alias-list.txt
+bashdoc ........... bash-doc.txt
+a-zbash ........... a-z-index-of-bash-commands
+regdoc ............ Regular-Expressions.txt
+bashexamples ...... 30-Bash-Script-Examples.txt
+start-mysql ....... Start-Stop-MySQL-Server-from-Command-Line.txt
+run-mysql ......... How-to-run-MySQL-Command-from-terminal.txt
+encrypt-decrypt ... encrypt-decrypt-a-file-in-Linux.txt
