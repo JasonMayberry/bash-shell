@@ -36,6 +36,24 @@ You can enter a database from the command line like this:
 
    Here, notice that I'm using also -e argument. It stands for execute.
 
+
+
+
+How to list MySQL database table column names without the table formatting
+                                              ****************************
+First, start MySQL with the -sN options, like this:
+$ mysql -sN -u root -p
++--------+---------------------+-----------------------------------------+
+| Option | Long Option         | Description                             |
++--------+---------------------+-----------------------------------------+
+| -s     | --silent            | Be more silent. Print results with a    |
+|        |                     | tab as separator, each row on new line. |
++--------+---------------------+-----------------------------------------+
+| -N     | --skip-column-names | Don't write column names in results.    |
++--------+---------------------+-----------------------------------------+
+
+
+
    Pro tip
 
    In MySQL client you can use:
