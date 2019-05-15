@@ -88,7 +88,7 @@ alias hist='history'
 alias desk='cd ~/Desktop/'
 alias seepdf='zathura'
 alias ebashrc='vi ~/.bashrc'
-alias rfbashrc='source ~/.bashrc'
+alias rbashrc='source ~/.bashrc'
 
 
 
