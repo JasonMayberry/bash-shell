@@ -6,6 +6,7 @@
  Enter Password:
 
    Note: Default user name and password is root
+         **************************************
 
 You can enter a database from the command line like this:
  $ mysql -u root -p database_name
