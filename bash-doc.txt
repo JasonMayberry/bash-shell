@@ -791,6 +791,56 @@ $ gzip -d file.txt  # decompress file.txt
 
 
 
+The grep program accepts options and arguments this way,
+where regex is a regular expression:
+$ grep [options] regex [file...]
++-----------------------------------------------------------------------+
+|                   COMMONLY USED GREP OPTIONS                          |
++--------+-----------------------+--------------------------------------+
+| Option | Long Option           | Description                          |
++--------+-----------------------+--------------------------------------+
+| -i     | --ignore-case         | Ignore case. Do not distinguish      |
+|        |                       | between uppercase and lowercase      |
+|        |                       | characters.                          |
++--------+-----------------------+--------------------------------------+
+| -v     | --invert-match        | Invert match. Normally, grep         |
+|        |                       | prints lines that contain a match.   |
+|        |                       | This option causes grep to print     |
+|        |                       | every line that does not contain a   |
+|        |                       | match.                               |
++--------+-----------------------+--------------------------------------+
+| -c     | --count               | Print the number of matches (or      |
+|        |                       | non-matches if the -v option is      |
+|        |                       | also specified) instead of the lines |
+|        |                       | themselves.                          |
++--------+-----------------------+--------------------------------------+
+| -l     | --files-with-matches  | Print the name of each file that     |
+|        |                       | contains a match instead of the      |
+|        |                       | lines themselves.                    |
++--------+-----------------------+--------------------------------------+
+| -L     | --files-without-match | Like the -l option, but print only   |
+|        |                       | the names of files that do not       |
+|        |                       | contain matches.                     |
++--------+-----------------------+--------------------------------------+
+| -n     | --line-number         | Prefix each matching line with the   |
+|        |                       | number of the line within the file.  |
++--------+-----------------------+--------------------------------------+
+| -h     | --no-filename         | For multi-file searches, suppress    |
+|        |                       | the output of filenames.             |
++--------+-----------------------+--------------------------------------+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
