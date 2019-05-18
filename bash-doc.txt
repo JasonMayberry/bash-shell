@@ -70,6 +70,7 @@ alias bashexamples='wget -qO- https://raw.githubusercontent.com/JasonMayberry/ba
 alias start-mysql='wget -qO- https://raw.githubusercontent.com/JasonMayberry/bash-shell/master/Start-Stop-MySQL-Server-from-Command-Line.txt | less'
 alias run-mysql='wget -qO- https://raw.githubusercontent.com/JasonMayberry/bash-shell/master/How-to-run-MySQL-Command-from-terminal.txt | less'
 alias encrypt-decrypt='wget -qO- https://raw.githubusercontent.com/JasonMayberry/bash-shell/master/encrypt-decrypt-a-file-in-Linux.txt | less'
+alias Info-Links='wget -qO- https://raw.githubusercontent.com/JasonMayberry/bash-shell/master/Info-Links | less'
 alias l='ls -CF'
 alias l.='ls -d .* --color=auto'
 alias la='ls -A'
