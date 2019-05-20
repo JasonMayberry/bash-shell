@@ -1,0 +1,67 @@
+sort
+The sort program sorts the contents of standard input, or one or more files specified on
+the command line, and sends the results to standard output. Using the same technique that
+we used with cat, we can demonstrate processing of standard input directly from the
+keyboard as follows:
+
+[me@linuxbox ~]$ sort > foo.txt
+c
+b
+a
+[me@linuxbox ~]$ cat foo.txt
+a
+b
+c
+
+After entering the command, we type the letters c, b, and a, and then we press Ctrl-d
+to indicate end-of-file. We then view the resulting file and see that the lines now appear in
+sorted order.
+
+Since sort can accept multiple files on the command line as arguments, it is possible to
+merge multiple files into a single sorted whole. For example, if we had three text files and
+wanted to combine them into a single sorted file, we could do something like this:
+
+[me@linuxbox ~]$ sort file1.txt file2.txt file3.txt > final_sorted_list.txt
+
++--------+-------------------------+---------------------------------------+
+| Option | Long Option             | Description                           |
++--------+-------------------------+---------------------------------------+
+| -b     | --ignore-leading-blanks | By default, sorting is performed on   |
+|        |                         | the entire line, starting with the    |
+|        |                         | first character in the line. This     |
+|        |                         | option causes sort to ignore          |
+|        |                         | leading spaces in lines and           |
+|        |                         | calculates sorting based on the       |
+|        |                         | first non-whitespace character on     |
+|        |                         | the line.                             |
++--------+-------------------------+---------------------------------------+
+| -f     | --ignore-case           | Make sorting case-insensitive.        |
++--------+-------------------------+---------------------------------------+
+| -n     | --numeric-sort          | Perform sorting based on the          |
+|        |                         | numeric evaluation of a string.       |
+|        |                         | Using this option allows sorting to   |
+|        |                         | be performed on numeric values        |
+|        |                         | rather than alphabetic values.        |
++--------+-------------------------+---------------------------------------+
+| -r     | --reverse               | Sort in reverse order. Results are in |
+|        |                         | descending rather than ascending      |
+|        |                         | order.                                |
++--------+-------------------------+---------------------------------------+
+| -k     | --key=field1[,field2]   | Sort based on a key field located     |
+|        |                         | from field1 to field2 rather than the |
+|        |                         | entire line. See the following        |
+|        |                         | discussion.                           |
++--------+-------------------------+---------------------------------------+
+| -m     | --merge                 | Treat each argument as the name       |
+|        |                         | of a presorted file. Merge multiple   |
+|        |                         | files into a single sorted result     |
+|        |                         | without performing any additional     |
+|        |                         | sorting.                              |
++--------+-------------------------+---------------------------------------+
+| -o     | --output=file           | Send sorted output to file rather     |
+|        |                         | than standard output.                 |
++--------+-------------------------+---------------------------------------+
+| -t     | --field-separator=char  | Define the field-separator            |
+|        |                         | character. By default fields are      |
+|        |                         | separated by spaces or tabs.          |
++--------+-------------------------+---------------------------------------+
