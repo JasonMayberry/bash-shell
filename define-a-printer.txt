@@ -1,0 +1,15 @@
+
+[me@linuxbox ~]$ ls /usr/bin | pr -3 | lpr
+
+The report would be sent to the system’s default printer. To send the file to a different
+printer, the -P option can be used like this: 
+[me@linuxbox ~]$ lpr -P printer_name
+
+Here, printer_name is the name of the desired printer. To see a list of printers known to the system, use this:
+[me@linuxbox ~]$ lpstat -a
+
+Tip: Many Linux distributions allow you to define a “printer” that outputs files in Portable Document Format (PDF), rather than printing on the physical printer. This is very handy for experimenting with printing commands. Check your printer configuration program to see whether it supports this configuration. On some distributions, you may need to install additional packages (such as cups- pdf) to enable this capability.
+
+lp – Print Files (System V Style)
+Like lpr, lp accepts either files or standard input for printing. It differs from lpr in that it supports a different (and slightly more sophisticated) option set. Table 22-3 describes the common options.
+
