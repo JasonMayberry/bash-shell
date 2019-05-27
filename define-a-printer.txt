@@ -1,4 +1,6 @@
 
+Tip: For those interested in installing TEX, check out the texlive package which can be found in most distribution repositories, and the LyX graphical content editor.
+
 [me@linuxbox ~]$ ls /usr/bin | pr -3 | lpr
 
 The report would be sent to the system’s default printer. To send the file to a different
