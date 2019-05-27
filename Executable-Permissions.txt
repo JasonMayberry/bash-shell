@@ -1,0 +1,22 @@
+#!/bin/bash
+# This is our first script.
+echo 'Hello World!' # This is a comment too
+
+# Executable Permissions
+# 
+# The next thing we have to do is make our script executable.
+# This is easily done using chmod.
+# 
+# [me@linuxbox ~]$ ls -l bash-script
+# -rw-r--r-- 1  me      me  63 2009-03-07 10:10 bash-script
+
+#-----------------------------------------#
+# [me@linuxbox ~]$ chmod 755 bash-script  #
+#-----------------------------------------#
+
+# [me@linuxbox ~]$ ls -l bash-script
+# -rwxr-xr-x 1  me      me  63 2009-03-07 10:10 bash-script
+# 
+# There are two common permission settings for scripts: 755 for scripts that everyone can
+# execute, and 700 for scripts that only the owner can execute. Note that scripts must be
+# readable to be executed.
