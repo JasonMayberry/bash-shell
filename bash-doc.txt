@@ -66,6 +66,7 @@ alias docs='wget -qO- https://raw.githubusercontent.com/JasonMayberry/bash-shell
 alias bashdoc='wget -qO- https://raw.githubusercontent.com/JasonMayberry/bash-shell/master/bash-doc.txt | less'
 alias a-zbash='wget -qO- https://raw.githubusercontent.com/JasonMayberry/bash-shell/master/a-z-index-of-bash-commands | less'
 alias regdoc='wget -qO- https://raw.githubusercontent.com/JasonMayberry/bash-shell/master/Regular-Expressions.txt | less'
+alias Regular-Expression-Basics-Examples='wget -qO- https://raw.githubusercontent.com/JasonMayberry/bash-shell/master/Regular%20Expression%20Basics%20-%20Examples.txt | less'
 alias bashexamples='wget -qO- https://raw.githubusercontent.com/JasonMayberry/bash-shell/master/30-Bash-Script-Examples.txt | less'
 alias start-mysql='wget -qO- https://raw.githubusercontent.com/JasonMayberry/bash-shell/master/Start-Stop-MySQL-Server-from-Command-Line.txt | less'
 alias run-mysql='wget -qO- https://raw.githubusercontent.com/JasonMayberry/bash-shell/master/How-to-run-MySQL-Command-from-terminal.txt | less'
