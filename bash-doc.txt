@@ -76,7 +76,7 @@ alias l.='ls -d .* --color=auto'
 alias la='ls -A'
 alias ll='ls -l --color=auto'
 alias lslong='ls -l --color=auto'
-alias lsv='ls --format=single-column --color=auto'
+alias lsv='ls --format=single-column --color=auto' # ls -1 has the same effect of each item on its own line
 alias chrome='chromium-browser'
 alias ff='firefox'
 alias links2b='links2 -g bing.com'
