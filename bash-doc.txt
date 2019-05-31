@@ -251,14 +251,14 @@ Alt-u  Convert the characters from the cursor location to the end of the word to
 
 # Redirects the text you type after pressing enter into the file.
 # After you're finished typing press Ctrl+d to save.
-[me@linuxbox ~]$ cat > cities.txt
+   [me@linuxbox ~]$ cat > cities.txt
 
 # Append whatever text you type to the end of the file.
 # After you're finished typing press Ctrl+d to save.
-[me@linuxbox ~]$ cat >> cities.txt
+   [me@linuxbox ~]$ cat >> cities.txt
 
 # Glue two files together and place the output in a new file.
-[me@linuxbox ~]$ cat cities.txt states.txt > citiesANDstates.txt
+   [me@linuxbox ~]$ cat cities.txt states.txt > citiesANDstates.txt
 
 
 
