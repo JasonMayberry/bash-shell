@@ -245,6 +245,9 @@ Alt-u  Convert the characters from the cursor location to the end of the word to
 
 
 
+$ cat > cities.txt
+$ cat >> cities.txt
+$ cat cities.txt states.txt > citiesANDstates.txt
 
 
 
