@@ -245,6 +245,7 @@ Alt-u  Convert the characters from the cursor location to the end of the word to
 
 
 
+
 ###########
 ##  cat  ##
 ###########
@@ -259,6 +260,51 @@ Alt-u  Convert the characters from the cursor location to the end of the word to
 
 # Glue two files together and place the output in a new file.
    [me@linuxbox ~]$ cat cities.txt states.txt > citiesANDstates.txt
+
+
+
+
+
+########################################
+##  Streams, Redirection, and Piping  ##
+########################################
+
+# Piping is simply the output of one command going to the input of another.
+   [me@linuxbox ~]$ ls -1 | wc -l
+4
+
+# /dev/null = Nowhere!
+# Send stuff here that you want to disappear.
+   [me@linuxbox ~]$ find -name *.conf 2> /dev/null
+
+# Standard-out, Standard-in and Standard error
+   [me@linuxbox ~]$ find / -name *.conf 2> errors.txt
+
+# You can redirect one stream to another.
+   [me@linuxbox ~]$ find / -name *.conf 2>&1
+
+       +--------------+
+       |  0 = stdin   |
+       |  1 = stdout  |
+       |  2 = stderr  |
+       +--------------+
+
+# Standard-out piped to tee
+ ## tee allows the redirection of data into a file but also prints the data out to
+ ## the standard output so that you can see what you're putting in the file.
+     [me@linuxbox ~]$ls -1 | tee output.txt
+        citiesANDnames.txt
+        cities.txt
+        errors.txt
+        names.txt
+
+####################
+##  find & xargs  ##
+####################
+    # This command says find every file under the root directory. Print out its name as long as it's 
+    # name ends with.conf. Then pipe the output to xargs and count the words with word count(wc)
+        $find / -name *.conf | xargs wc -l
+
 
 
 
