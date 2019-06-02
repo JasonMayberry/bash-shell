@@ -76,7 +76,7 @@ alias Info-Links='wget -qO- https://raw.githubusercontent.com/JasonMayberry/bash
 alias l='ls -CF'
 alias l.='ls -d .* --color=auto'
 alias la='ls -A'
-alias ll='ls -l --color=auto'
+alias ll='ls -alF' # or: alias ll='ls -l --color=auto'
 alias lslong='ls -l --color=auto'
 alias lsv='ls --format=single-column --color=auto' # ls -1 has the same effect of each item on its own line
 alias chrome='chromium-browser'
