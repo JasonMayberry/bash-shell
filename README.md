@@ -4,6 +4,7 @@ This is just a collection of notes from my study of the BASH shell. They are ind
   
 I’m using Ubuntu Linux. I have not tested this code on any other platforms!  
   
+```  
 Install jdocs  
 \# add the line below too ~.bashrc file. It will add ~/bin folder to $PATH  
 me@linuxBox:~$ export PATH="$HOME/bin:$PATH"  
@@ -14,3 +15,4 @@ me@linuxBox:~$ chmod 755 ~/bin/jdocs
   
 \# after that you should be able to run jdocs from any location in the terminal  
 me@linuxBox:~$ jdocs  
+```
