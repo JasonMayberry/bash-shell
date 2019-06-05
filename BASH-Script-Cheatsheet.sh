@@ -571,11 +571,11 @@ ADDTEXT3
 ################
 ##  Also see  ##
 ################
-     * Bash-hackers wiki (bash-hackers.org)
-     * Shell vars (bash-hackers.org)
-     * Learn bash in y minutes (learnxinyminutes.com)
-     * Bash Guide (mywiki.wooledge.org)
-     * ShellCheck (shellcheck.net)
+     # * Bash-hackers wiki (bash-hackers.org)
+     # * Shell vars (bash-hackers.org)
+     # * Learn bash in y minutes (learnxinyminutes.com)
+     # * Bash Guide (mywiki.wooledge.org)
+     # * ShellCheck (shellcheck.net)
 
 
 
