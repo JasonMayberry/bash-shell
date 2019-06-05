@@ -1,6 +1,19 @@
 #!/bin/bash
 
-# This script provides BASH shell tips and info
+# PURPOSE
+# Provides BASH Cheatsheet-pages Menu for the terminal
+# It's a great way to keep your notes on the BASH Shell
+#
+# COMPATIBILITY
+# Used only on "Ubuntu Linux" but I'm sure that with a few
+# "brew installs" you could get it working on a Mac machine.
+
+# USAGE
+# [1]. Add file names of files in a common Repository to the 
+#      pages array in the same format as you see in the example here.
+# [2]. Reset the base_url to point at that repository as you see in the example here.
+#
+# That's it! The script will do the rest.
 
 while true; do
 clear
@@ -20,16 +33,13 @@ pages=(
 '[10]. encrypt-decrypt-a-file-in-Linux.txt' 
 '[11]. Info-Links' 
 '[12]. sublime-text-documentation.txt' 
+'[13]. BASH-Script-Cheatsheet.sh' 
 )
 
 for i in "${pages[@]}"
 do
     echo $i
 done
-
-echo $list
-
-# echo ${pages[2]}
 
 base_wget="wget -qO- "
 base_url="https://raw.githubusercontent.com/JasonMayberry/bash-shell/master/"
@@ -45,9 +55,11 @@ fi
 echo -n "Type a topic number: "
 read topic
 echo
+# This if statement is useful for troubleshooting
 if [ "$topic" != "q" ]; then
 echo "Topic #$topic: "
 fi
+
 echo
 sorry=""
 
@@ -55,88 +67,49 @@ if [ $topic == 'q' ]; then
     break
 fi
 
+# get length of an array
+tLen=${#pages[@]}
 
-case "$topic" in
-    '1')
-        str=${pages[0]}
+function makePage() {
+    # use for loop read all pages
+    for (( i=0; i<${tLen}; i++ ));
+    do
+        if [[ $topic =~ ^[0-9]{,2}$ ]]; then
+            if (( $topic > ${tLen} )); then
+                sorry="#-------------> Topic #$topic could not be found."
+            elif (( $topic < 10 )); then
+                getPage_0_9 "$topic"
+                break
+            else
+                getPage_10_99 "$topic"
+                break
+            fi
+        else
+            sorry="#-------------> Invalid Input -  Type a number from 1-99"
+        fi
+        # echo ${pages[$i]}
+    done
+ }
+
+function getPage_0_9() {
+        str=${pages[$(($1 - 1))]}
         doc=${str/\[[0-9]\]\.[[:space:]]/}
         page="$base_wget $base_url$doc $base_less" 
         eval "$page"
-        ;;
-    '2')
-        str=${pages[1]}
-        doc=${str/\[[0-9]\]\.[[:space:]]/}
-        page="$base_wget $base_url$doc $base_less" 
-        eval "$page"
-        ;;
-    '3')
-        str=${pages[2]}
-        doc=${str/\[[0-9]\]\.[[:space:]]/}
-        page="$base_wget $base_url$doc $base_less" 
-        eval "$page"
-        ;;
-    '4')
-        str=${pages[3]}
-        doc=${str/\[[0-9]\]\.[[:space:]]/}
-        page="$base_wget $base_url$doc $base_less" 
-        eval "$page"
-        ;;
-    '5')
-        str=${pages[4]}
-        doc=${str/\[[0-9]\]\.[[:space:]]/}
-        page="$base_wget $base_url$doc $base_less" 
-        eval "$page"
-        ;;
-    '6')
-        str=${pages[5]}
-        doc=${str/\[[0-9]\]\.[[:space:]]/}
-        page="$base_wget $base_url$doc $base_less" 
-        eval "$page"
-        ;;
-    '7')
-        str=${pages[6]}
-        doc=${str/\[[0-9]\]\.[[:space:]]/}
-        page="$base_wget $base_url$doc $base_less" 
-        eval "$page"
-        ;;
-    '8')
-        str=${pages[7]}
-        doc=${str/\[[0-9]\]\.[[:space:]]/}
-        page="$base_wget $base_url$doc $base_less" 
-        eval "$page"
-        ;;
-    '9')
-        str=${pages[8]}
-        doc=${str/\[[0-9]\]\.[[:space:]]/}
-        page="$base_wget $base_url$doc $base_less" 
-        eval "$page"
-        ;;
-    '10')
-        str=${pages[9]}
+ }
+
+function getPage_10_99() {
+        str=${pages[$(($1 - 1))]}
         doc=${str/\[[0-9][0-9]\]\.[[:space:]]/}
         page="$base_wget $base_url$doc $base_less" 
         eval "$page"
-        ;;
-    '11')
-        str=${pages[10]}
-        doc=${str/\[[0-9][0-9]\]\.[[:space:]]/}
-        page="$base_wget $base_url$doc $base_less" 
-        eval "$page"
-        ;;
-    '12')
-        str=${pages[11]}
-        doc=${str/\[[0-9][0-9]\]\.[[:space:]]/}
-        page="$base_wget $base_url$doc $base_less" 
-        eval "$page"
-        ;;
-    *)
-       if [[ $topic =~ ^[0-9]{,2}$ ]]; then
-             sorry="#-------------> Topic #$topic could not be found."
-         else
-             sorry="#-------------> Invalid Input -  Type a number from 0-99"
-         fi
-        ;;
-esac
+ }
+
+if [[ $topic -gt 0 ]]; then
+    makePage
+else
+    sorry="#-------------> Invalid Input -  Type a number from 1-99"
+fi
 
 echo
 
