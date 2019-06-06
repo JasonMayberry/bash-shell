@@ -43,6 +43,13 @@ pages=(
 '[11]. Info-Links' 
 '[12]. sublime-text-documentation.txt'
 '[13]. BASH-Script-Cheatsheet.sh'
+'[14]. printf.txt'
+'[15]. gzip.txt'
+'[16]. sort.txt'
+'[17]. xargs.txt'
+'[18]. define-a-printer.txt'
+'[19]. Synchronizing-Files-and-Directories.txt'
+'[20]. Executable-Permissions.txt'
 )
 
 for i in "${pages[@]}"
