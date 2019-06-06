@@ -15,6 +15,7 @@
 # 
 # DEPENDENCIES
 # jdocs2 requires "highlight" to be installed
+# Source: http://www.andre-simon.de/doku/highlight/en/highlight.php
 # [me@linuxBox]~$ sudo apt install highlight
 # 
 # With jdoc2 the file suffix must be ".sh" and the bash
