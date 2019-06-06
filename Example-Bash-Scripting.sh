@@ -69,15 +69,6 @@ fi
 
 
 
-# Numeric Conditional Operators
-#  -eq   equals
-#  -ne   not equals
-#  -lt     less than
-#  -le    less than or equal to
-#  -gt    greater than
-#  -ge   greater than or equal to
-
-
 #!/bin/bash
 # check-dependency.sh 
 if command -v nodejs >/dev/null 2>&1 ; then
