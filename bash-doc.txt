@@ -28,6 +28,7 @@ jp2a example.jpeg ........... Converts .jpg or .jpeg files into ASCII art
 cal ......................... Shows the default calendar for the current month
 cal 2019 .................... Shows the default calendar for the current year
 history ..................... Shows the BASH history in a numbered list
+highlight ................... syntax highlighting in less linux:~$ highlight -O xterm256 your-file | less -R
 gpg -c file.txt ............. encrypt file - enter password twice
 gpg -d file.txt ............. decrypt file - enter password
 cmatrix ..................... Shows the Matrix
