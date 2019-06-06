@@ -1,0 +1,55 @@
+MacBook-Pro:~ jasonmayberry$ seq 5 | xargs echo "Hello"
+Hello 1 2 3 4 5
+MacBook-Pro:~ jasonmayberry$ seq 5 | xargs -n 1 echo "Hello"
+Hello 1
+Hello 2
+Hello 3
+Hello 4
+Hello 5
+MacBook-Pro:~ jasonmayberry$ seq 5
+1
+2
+3
+4
+5
+MacBook-Pro:~ jasonmayberry$ ls -1
+Applications
+Desktop
+Documents
+Downloads
+Google Drive
+Library
+Mirror
+Movies
+Music
+Pictures
+Public
+VScode-Settings
+VirtualBox VMs
+anaconda3
+homework
+MacBook-Pro:~ jasonmayberry$ ls -1 | xargs echo "Hello"
+Hello Applications Desktop Documents Downloads Google Drive Library Mirror Movies Music Pictures Public VScode-Settings VirtualBox VMs anaconda3 homework
+MacBook-Pro:~ jasonmayberry$ ls -1 | xargs -n 1 echo "Hello"
+Hello Applications
+Hello Desktop
+Hello Documents
+Hello Downloads
+Hello Google
+Hello Drive
+Hello Library
+Hello Mirror
+Hello Movies
+Hello Music
+Hello Pictures
+Hello Public
+Hello VScode-Settings
+Hello VirtualBox
+Hello VMs
+Hello anaconda3
+Hello homework
+MacBook-Pro:~ jasonmayberry$ 
+
+
+
+
