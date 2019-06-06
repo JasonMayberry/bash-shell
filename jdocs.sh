@@ -1,21 +1,30 @@
 #!/bin/bash
 
-# PURPOSE
+#---------- PURPOSE -----------#
 # Provides BASH Cheatsheet-pages Menu for the terminal
 # It's a great way to keep your notes on the BASH Shell
 #
-# COMPATIBILITY
+#---------- COMPATIBILITY -----#
 # Used only on "Ubuntu Linux" but I'm sure that with a few
 # "brew installs" you could get it working on a Mac machine.
 
-# USAGE
+#---------- USAGE -------------#
 # [1]. Add file names of files in a common Repository to the 
 #      pages array in the same format as you see in the example here.
 # [2]. Reset the base_url to point at that repository as you see in the example here.
-#
+# 
+#---------- DEPENDENCIES -------#
+# jdocs requires "highlight" to be installed but is functional without it.
+# To install it run: [me@linuxBox]~$ sudo apt install highlight
+# 
+#---------- NOTE ---------------#
+# With jdocs the file suffix must be ".sh" and the bash script must have the 
+# shebang(#!/bin/bash) as the first line to view with syntax highlighting
+# 
 # That's it! The script will do the rest.
 
 while true; do
+# Disable clear for troubleshooting
 clear
 echo "##### On which topic do you want see notes? #####"
 echo "================================================="
@@ -32,8 +41,8 @@ pages=(
 '[9]. How-to-run-MySQL-Command-from-terminal.txt' 
 '[10]. encrypt-decrypt-a-file-in-Linux.txt' 
 '[11]. Info-Links' 
-'[12]. sublime-text-documentation.txt' 
-'[13]. BASH-Script-Cheatsheet.sh' 
+'[12]. sublime-text-documentation.txt'
+'[13]. BASH-Script-Cheatsheet.sh'
 )
 
 for i in "${pages[@]}"
@@ -50,12 +59,12 @@ if [ "$sorry" != "" ]; then
 fi
 echo $sorry
 if [ "$topic" != 'q' ]; then
-    echo "[ q to Exit ]"
+    echo "[ q to Quit ]"
 fi
 echo -n "Type a topic number: "
 read topic
 echo
-# This if statement is useful for troubleshooting
+# This "if statement" is useful for troubleshooting
 if [ "$topic" != "q" ]; then
 echo "Topic #$topic: "
 fi
@@ -64,6 +73,8 @@ echo
 sorry=""
 
 if [ $topic == 'q' ]; then
+    # Disable clear for troubleshooting
+    clear
     break
 fi
 
@@ -91,18 +102,35 @@ function makePage() {
     done
  }
 
+function check_highlight() {
+    if [[ $doc == *".sh" ]]; then
+        if command -v highlight >/dev/null 2>&1 ; then
+            highlight=" | highlight -O xterm256"
+            base_less=" | less -R"
+            page="$base_wget $base_url$doc $highlight $base_less"
+            # echo "$page" # enable echo for troubleshooting
+            eval "$page"
+        else
+            sorry="#> highlight not found <# To install it run: sudo apt install highlight"
+            page="$base_wget $base_url$doc $base_less"
+            eval "$page"
+        fi
+    else
+    page="$base_wget $base_url$doc $base_less"
+    eval "$page"
+    fi
+ }
+
 function getPage_0_9() {
         str=${pages[$(($1 - 1))]}
         doc=${str/\[[0-9]\]\.[[:space:]]/}
-        page="$base_wget $base_url$doc $base_less" 
-        eval "$page"
+        check_highlight
  }
 
 function getPage_10_99() {
         str=${pages[$(($1 - 1))]}
         doc=${str/\[[0-9][0-9]\]\.[[:space:]]/}
-        page="$base_wget $base_url$doc $base_less" 
-        eval "$page"
+        check_highlight
  }
 
 if [[ $topic -gt 0 ]]; then
