@@ -78,3 +78,39 @@ fi
 #  -ge   greater than or equal to
 
 
+#!/bin/bash
+# check-dependency.sh 
+
+if command -v nodejs >/dev/null 2>&1 ; then
+    echo "nodejs found"
+    echo "version: $(nodejs -v)"
+else
+    echo "nodejs not found"
+fi
+
+
+#!/bin/bash
+# keyDown-event-listener.sh
+
+while true; do
+read -rsn1 input
+if [ "$input" = "a" ]; then
+    echo "hello world"
+fi
+done
+
+
+#!/bin/bash
+#test-heredoc.sh
+
+start="Hello everybody"
+end="Good Luck"
+
+cat <<_END_
+$start
+Welcome to Linux Blog Site.
+$end
+_END_
+
+
+
