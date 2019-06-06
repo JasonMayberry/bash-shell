@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # Source: https://devhints.io/bash
 
 #####################################
