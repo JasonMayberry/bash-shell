@@ -80,6 +80,7 @@ alias linksd='links duckduckgo.com'
 alias linksg='links google.com'
 alias clrh='> .bash_history'
 alias cls='clear'
+alias clsa='printf "\033c"' # Clear screen (all)
 alias files='pcmanfm' # thunar (Case or if would be good here)
 alias hist='history'
 alias desk='cd ~/Desktop/'
