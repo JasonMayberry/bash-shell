@@ -51,6 +51,7 @@ pages=(
 '[19]. Synchronizing-Files-and-Directories.txt'
 '[20]. xargs.txt'
 '[21]. Flow-Control-Branching-with-if-Conditions.sh'
+'[22]. STRING-MANIPULATION.sh'
 )
 
 for i in "${pages[@]}"
