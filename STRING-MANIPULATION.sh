@@ -1,3 +1,4 @@
+#!/bin/bash
 
 STRING MANIPULATION
 # Removing ^M Windows line end characters from file
