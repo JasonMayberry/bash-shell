@@ -88,6 +88,13 @@ alias seepdf='zathura'
 # alias subl='sublime-text' # open using subl or sublime-text by default
 alias ebashrc='vi ~/.bashrc'
 alias rbashrc='source ~/.bashrc'
+# The next three functions act as an alias when added to the ~/.bashrc file
+# Example:
+# prompt:$ vi_ 'a long with lots of spaces.txt'
+# Starts vim with the supplied string as the file name replacing spaces with underscores
+vi_() { vim "${@// /_}"; }
+vi-() { vim "${@// /-}"; }
+vip() { vim "${@// /.}"; }
 
 
 
