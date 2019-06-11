@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #---------- PURPOSE -----------#
-# Provides Github.com view only file Menu for the terminal
+# Provides BASH Cheatsheet-pages Menu for the terminal
 # It's a great way to keep your notes on the BASH Shell
 #
 #---------- COMPATIBILITY -----#
@@ -9,24 +9,27 @@
 # "brew installs" you could get it working on Mac or Windows.
 
 #---------- USAGE -------------#
-# [1]. Add files in a common Github.com Repository 
+# [1]. Add files in a common Github.com Repository
 # [2]. Follow the instructions in the README.md
-# [2]. Change repo_root_url to point at that repository as you see here:
+# [3]. Run crepo with or without an argument as folows:
+# [me@linuxBox]~$ crepo   # will view default repo
+# [me@linuxBox]~$ crepo https://github.com/epety/100-shell-script-examples
+# [5]. Change repo_root_url to set the default repository as you see here:
 repo_root_url='https://github.com/JasonMayberry/bash-shell'
-#   Change this url    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-# 
+#     Default URL      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+#
 #---------- DEPENDENCIES -------#
 # crepo requires "highlight" to be installed
 # [me@linuxBox]~$ sudo apt install highlight
-# 
+#
 #---------- NOTE ---------------#
-# With crepo the file suffix must be ".sh" and the bash script must have the 
+# With crepo the file suffix must be ".sh" and the bash script must have the
 # shebang(#!/bin/bash) as the first line to view with syntax highlighting
-# 
+#
 # That's it! The script will do the rest.
 
 base_wget="wget -qO- "
-base_less=" | less" 
+base_less=" | less"
 
 while true; do
 # Disable clear for troubleshooting
@@ -41,12 +44,23 @@ if [ ${#pages[@]} -eq 0 ]; then
     sleep 1
     echo -ne '#############################   (100%)\r'
     echo -ne '\n'
-	# Convert the repo_root_url into the raw base_url
-	one=$(echo "$repo_root_url" | sed -e 's/github/raw.githubusercontent/g'); 
-	base_url="$one/master/"
-	# Get all file names in the Github Repository
-    repo=$(wget -q $repo_root_url -O - | grep -i -o 'n-open" title=".*" id="' | sed -e 's/^n-open" title="\([^"]\+\)".*$/\1/g')
-    declare -a pages=($repo)
+
+    if [ "$1" != "" ]; then
+    	repo_root_url=$1
+		# Convert the repo_root_url into the raw base_url
+		one=$(echo "$1" | sed -e 's/github/raw.githubusercontent/g');
+		base_url="$one/master/"
+		# Get all file names in the Github Repository
+	    repo=$(wget -q $repo_root_url -O - | grep -i -o 'n-open" title=".*" id="' | sed -e 's/^n-open" title="\([^"]\+\)".*$/\1/g')
+	    declare -a pages=($repo)
+	else
+		# Convert the repo_root_url into the raw base_url
+		one=$(echo "$repo_root_url" | sed -e 's/github/raw.githubusercontent/g');
+		base_url="$one/master/"
+		# Get all file names in the Github Repository
+	    repo=$(wget -q $repo_root_url -O - | grep -i -o 'n-open" title=".*" id="' | sed -e 's/^n-open" title="\([^"]\+\)".*$/\1/g')
+	    declare -a pages=($repo)
+	fi
 fi
 
 
@@ -91,7 +105,7 @@ function makePage() {
     # use for loop to read all pages
     for (( i=0; i<${tLen}; i++ ));
     do
-        if [[ $topic =~ ^[0-9]{,2}$ ]]; then
+        if [[ $topic =~ ^[0-9]{,3}$ ]]; then
             if (( $topic > ${tLen} )); then
                 sorry="#-------------> Topic #$topic could not be found."
             else
@@ -99,13 +113,14 @@ function makePage() {
                 break
             fi
         else
-            sorry="#-------------> Invalid Input -  Type a number from 1-99"
+            sorry="#-------------> Invalid Input -  Type a number from 1-999"
         fi
     done
  }
 
 function check_highlight() {
-	# A case statement should be used here to test for all file types that "highlight" suports
+	# A case statement should be used here to test for all file types that "highlight" supports
+    # Try catch might also help it to be more robust
     if [[ $doc == *".sh" ]]; then
         if command -v highlight >/dev/null 2>&1 ; then
             highlight=" | highlight -O xterm256"
@@ -132,10 +147,9 @@ function getPage() {
  if [[ $topic -gt 0 ]]; then
     makePage
 else
-    sorry="#-------------> Invalid Input -  Type a number from 1-99"
+    sorry="#-------------> Invalid Input -  Type a number from 1-999"
 fi
 
 echo
 
 done
-
