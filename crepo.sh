@@ -45,7 +45,7 @@ if [ ${#pages[@]} -eq 0 ]; then
 	one=$(echo "$repo_root_url" | sed -e 's/github/raw.githubusercontent/g'); 
 	base_url="$one/master/"
 	# Get all file names in the Github Repository
-    repo=$(wget -q https://github.com/JasonMayberry/bash-shell -O - | grep -i -o 'n-open" title=".*" id="' | sed -e 's/^n-open" title="\([^"]\+\)".*$/\1/g')
+    repo=$(wget -q $repo_root_url -O - | grep -i -o 'n-open" title=".*" id="' | sed -e 's/^n-open" title="\([^"]\+\)".*$/\1/g')
     declare -a pages=($repo)
 fi
 
