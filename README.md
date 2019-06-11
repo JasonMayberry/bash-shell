@@ -1,4 +1,5 @@
-# bash-shell
+# Home of "crepo"
+## See bash-shell notes with "See Repo"(crepo)
 
 This is just a collection of notes from my study of the BASH shell. They are indexed and used from the command line with the shell script “crepo.sh”.  
   
