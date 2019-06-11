@@ -13,7 +13,7 @@ Install crepo
     me@linuxBox:~$ sudo apt install highlight  
     me@linuxBox:~$ mkdir ~/bin  
     me@linuxBox:~$ wget -P ~/bin https://raw.githubusercontent.com/JasonMayberry/bash-shell/master/crepo.sh  
-    me@linuxBox:~$ mv ~/bin/crepo.sh crepo
+    me@linuxBox:~$ mv ~/bin/crepo.sh ~/bin/crepo
     me@linuxBox:~$ chmod 755 ~/bin/crepo  
   
 # after that you should be able to run crepo from any location in the terminal  
