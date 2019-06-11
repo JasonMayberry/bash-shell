@@ -10,7 +10,7 @@ Install crepo
     me@linuxBox:~$ export PATH="$HOME/bin:$PATH"  
 
     me@linuxBox:~$ mkdir ~/bin  
-    me@linuxBox:~$ wget -qO- https://raw.githubusercontent.com/JasonMayberry/bash-shell/master/crepo.sh | cat > ~/bin/crepo  
+    me@linuxBox:~$ wget -P ~/bin https://raw.githubusercontent.com/JasonMayberry/bash-shell/master/crepo.sh  
     me@linuxBox:~$ chmod 755 ~/bin/crepo  
   
 # after that you should be able to run crepo from any location in the terminal  
