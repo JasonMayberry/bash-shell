@@ -6,21 +6,27 @@
 #
 #---------- COMPATIBILITY -----#
 # Used only on "Ubuntu Linux" but I'm sure that with a few
-# "brew installs" you could get it working on a Mac machine.
+# "brew installs" you could get it working on Mac or Windows.
 
 #---------- USAGE -------------#
 # [1]. Add files in a common Github.com Repository 
-# [2]. Reset the base_url to point at that repository as you see in the example here.
+# [2]. Follow the instructions in the README.md
+# [2]. Change repo_root_url to point at that repository as you see here:
+repo_root_url='https://github.com/JasonMayberry/bash-shell'
+#   Change this url    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 # 
 #---------- DEPENDENCIES -------#
-# jdocs requires "highlight" to be installed
+# crepo requires "highlight" to be installed
 # [me@linuxBox]~$ sudo apt install highlight
 # 
 #---------- NOTE ---------------#
-# With jdocs the file suffix must be ".sh" and the bash script must have the 
+# With crepo the file suffix must be ".sh" and the bash script must have the 
 # shebang(#!/bin/bash) as the first line to view with syntax highlighting
 # 
 # That's it! The script will do the rest.
+
+base_wget="wget -qO- "
+base_less=" | less" 
 
 while true; do
 # Disable clear for troubleshooting
@@ -35,6 +41,10 @@ if [ ${#pages[@]} -eq 0 ]; then
     sleep 1
     echo -ne '#############################   (100%)\r'
     echo -ne '\n'
+	# Convert the repo_root_url into the raw base_url
+	one=$(echo "$repo_root_url" | sed -e 's/github/raw.githubusercontent/g'); 
+	base_url="$one/master/"
+	# Get all file names in the Github Repository
     repo=$(wget -q https://github.com/JasonMayberry/bash-shell -O - | grep -i -o 'n-open" title=".*" id="' | sed -e 's/^n-open" title="\([^"]\+\)".*$/\1/g')
     declare -a pages=($repo)
 fi
@@ -43,6 +53,7 @@ fi
 # get length of an array
 tLen=${#pages[@]}
 
+# Draw the Menu each time we loop
 for (( i=0; i<${tLen}; i++ ));
 do
     ii="[$(( $i+1 ))]. ${pages[$i]}"
@@ -50,9 +61,6 @@ do
 done
 
 
-base_wget="wget -qO- "
-base_url="https://raw.githubusercontent.com/JasonMayberry/bash-shell/master/"
-base_less=" | less" 
 
 if [ "$sorry" != "" ]; then
     echo
@@ -86,18 +94,18 @@ function makePage() {
         if [[ $topic =~ ^[0-9]{,2}$ ]]; then
             if (( $topic > ${tLen} )); then
                 sorry="#-------------> Topic #$topic could not be found."
-            elif (( $topic > 0 )); then
+            else
                 getPage "$topic"
                 break
             fi
         else
             sorry="#-------------> Invalid Input -  Type a number from 1-99"
         fi
-        # echo ${pages[$i]}
     done
  }
 
 function check_highlight() {
+	# A case statement should be used here to test for all file types that "highlight" suports
     if [[ $doc == *".sh" ]]; then
         if command -v highlight >/dev/null 2>&1 ; then
             highlight=" | highlight -O xterm256"
