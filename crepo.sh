@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #---------- PURPOSE -----------#
-# Provides BASH Cheatsheet-pages Menu for the terminal
+# Provides Github.com view only file Menu for the terminal
 # It's a great way to keep your notes on the BASH Shell
 #
 #---------- COMPATIBILITY -----#
