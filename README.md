@@ -1,7 +1,7 @@
 # Home of "crepo"
 ## See bash-shell notes with "See Repo"(crepo)
 
-This is just a collection of notes from my study of the BASH shell. They are indexed and used from the command line with the shell script “crepo.sh”.  
+This is just a collection of notes from my study of the BASH shell. They are indexed and used from the command line with the shell script “crepo.sh”. However crepo can be used to view any repo by opening crepo.sh in a text editor and editing one of the top lines. The instructions are very clear once its open.  
   
 I’m using Ubuntu Linux. I have not tested this code on any other platforms!  
   
