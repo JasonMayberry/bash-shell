@@ -10,6 +10,7 @@ Install crepo
 # add the line below too ~.bashrc file. It will add ~/bin folder to $PATH  
     me@linuxBox:~$ export PATH="$HOME/bin:$PATH"  
 
+    me@linuxBox:~$ sudo apt install highlight  
     me@linuxBox:~$ mkdir ~/bin  
     me@linuxBox:~$ wget -P ~/bin https://raw.githubusercontent.com/JasonMayberry/bash-shell/master/crepo.sh  
     me@linuxBox:~$ mv ~/bin/crepo.sh crepo
