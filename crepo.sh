@@ -1,7 +1,8 @@
 #!/bin/bash
 
 #---------- PURPOSE -----------#
-# Provides Github.com view only file Menu for the terminal
+# Provides Github.com Repository file viewer with Menu for the terminal
+# Supported Syntax Highlighting for when viewing .sh files
 # It's a great way to keep your notes on the BASH Shell
 #
 #---------- COMPATIBILITY -----#
@@ -10,12 +11,13 @@
 
 #---------- USAGE -------------#
 # [1]. Add files in a common Github.com Repository
-# [2]. Follow the instructions in the README.md
+# [2]. Follow the instructions in the README.md here:
+# https://github.com/JasonMayberry/bash-shell/blob/master/README.md
 # [3]. Run crepo with or without an argument as folows:
 # [me@linuxBox]~$ crepo   # will view default repo
 # [me@linuxBox]~$ crepo https://github.com/epety/100-shell-script-examples
-# [5]. Change repo_root_url to set the default repository as you see here:
-repo_root_url='https://github.com/JasonMayberry/bash-shell'
+# [4]. Change repoRootURL to set the default repository as you see here:
+repoRootURL='https://github.com/JasonMayberry/bash-shell'
 #     Default URL      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 #
 #---------- DEPENDENCIES -------#
@@ -28,16 +30,17 @@ repo_root_url='https://github.com/JasonMayberry/bash-shell'
 #
 # That's it! The script will do the rest.
 
-base_wget="wget -qO- "
-base_less=" | less"
+baseWget="wget -qO- "
+baseLess=" | less"
+invalidInput="#-------------> Invalid Input -  Type a number from 1-999"
 
 while true; do
-# Disable clear for troubleshooting
-clear
-echo "##### On which topic do you want see notes? #####"
+clear # Disable clear for troubleshooting
+
+echo "##### On which File Number do you want see? #####"
 echo "================================================="
 
-if [ ${#pages[@]} -eq 0 ]; then
+if [ ${#fileNamesArray[@]} -eq 0 ]; then
     echo -ne '###########                     (33%)\r'
     sleep 1
     echo -ne '###################             (66%)\r'
@@ -45,32 +48,31 @@ if [ ${#pages[@]} -eq 0 ]; then
     echo -ne '#############################   (100%)\r'
     echo -ne '\n'
 
+    function getFileNames() {
+        # Convert the repoRootURL into the rawBaseURL
+        rawBaseURL=$(sed -e 's/github/raw.githubusercontent/g' <<<"$repoRootURL/master/")
+        # Get all file names on the main page of the Github Repository.
+        getHTML=$(wget -qO- $repoRootURL)
+        searchHTML=$(grep -i -o 'n-open" title=".*" id="' <<<"$getHTML")
+        trimFileName=$(sed -e 's/^n-open" title="\([^"]\+\)".*$/\1/g' <<<"$searchHTML")
+    }
+
     if [ "$1" != "" ]; then
-    	repo_root_url=$1
-		# Convert the repo_root_url into the raw base_url
-		one=$(echo "$1" | sed -e 's/github/raw.githubusercontent/g');
-		base_url="$one/master/"
-		# Get all file names in the Github Repository
-	    repo=$(wget -q $repo_root_url -O - | grep -i -o 'n-open" title=".*" id="' | sed -e 's/^n-open" title="\([^"]\+\)".*$/\1/g')
-	    declare -a pages=($repo)
-	else
-		# Convert the repo_root_url into the raw base_url
-		one=$(echo "$repo_root_url" | sed -e 's/github/raw.githubusercontent/g');
-		base_url="$one/master/"
-		# Get all file names in the Github Repository
-	    repo=$(wget -q $repo_root_url -O - | grep -i -o 'n-open" title=".*" id="' | sed -e 's/^n-open" title="\([^"]\+\)".*$/\1/g')
-	    declare -a pages=($repo)
-	fi
+        repoRootURL=$1
+        getFileNames
+    else
+        getFileNames
+    fi
 fi
 
+declare -a fileNamesArray=($trimFileName) # Create an array from space delimited file names
 
-# get length of an array
-tLen=${#pages[@]}
+theLength=${#fileNamesArray[@]} # get length of the array
 
-# Draw the Menu each time we loop
-for (( i=0; i<${tLen}; i++ ));
+# Draw the Menu each time the array is looped over
+for (( i=0; i<${theLength}; i++ ));
 do
-    ii="[$(( $i+1 ))]. ${pages[$i]}"
+    ii="[$(( $i+1 ))]. ${fileNamesArray[$i]}"
     echo $ii
 done
 
@@ -80,74 +82,73 @@ if [ "$sorry" != "" ]; then
     echo
 fi
 echo $sorry
-if [ "$topic" != 'q' ]; then
+if [ "$menuFileNumber" != 'q' ]; then
     echo "[ q to Quit ]"
 fi
-echo -n "Type a topic number: "
-read topic
+echo -n "Type a menuFileNumber number: "
+read menuFileNumber
 echo
 # This "if statement" is useful for troubleshooting
-if [ "$topic" != "q" ]; then
-echo "Topic #$topic: "
+if [ "$menuFileNumber" != "q" ]; then
+echo "menuFileNumber #$menuFileNumber: "
 fi
 
 echo
 sorry=""
 
-if [ $topic == 'q' ]; then
-    # Disable clear for troubleshooting
-    clear
+if [ $menuFileNumber == 'q' ]; then
+    clear # Disable clear for troubleshooting
     break
 fi
 
 
 function makePage() {
-    # use for loop to read all pages
-    for (( i=0; i<${tLen}; i++ ));
+    # Use "for loop" to read file Names Array
+    for (( i=0; i<${theLength}; i++ ));
     do
-        if [[ $topic =~ ^[0-9]{,3}$ ]]; then
-            if (( $topic > ${tLen} )); then
-                sorry="#-------------> Topic #$topic could not be found."
+        if [[ $menuFileNumber =~ ^[0-9]{,3}$ ]]; then
+            if (( $menuFileNumber > ${theLength} )); then
+                sorry="#-------------> File #$menuFileNumber could not be found."
             else
-                getPage "$topic"
+                getPage "$menuFileNumber"
                 break
             fi
         else
-            sorry="#-------------> Invalid Input -  Type a number from 1-999"
+            sorry=$invalidInput
         fi
     done
  }
 
 function check_highlight() {
-	# A case statement should be used here to test for all file types that "highlight" supports
-    # Try catch might also help it to be more robust
+    # Maybe case statement should be used here to test for all file types that "highlight" supports
+    # Try, catch, might make it more robust
     if [[ $doc == *".sh" ]]; then
         if command -v highlight >/dev/null 2>&1 ; then
             highlight=" | highlight -O xterm256"
-            base_less=" | less -R"
-            page="$base_wget $base_url$doc $highlight $base_less"
+            baseLess=" | less -R"
+            page="$baseWget $rawBaseURL$doc $highlight $baseLess"
             # echo "$page" # enable echo for troubleshooting
             eval "$page"
         else
             sorry="#> highlight not found <# To install it run: sudo apt install highlight"
-            page="$base_wget $base_url$doc $base_less"
+            page="$baseWget $rawBaseURL$doc $baseLess"
             eval "$page"
         fi
     else
-    page="$base_wget $base_url$doc $base_less"
+    page="$baseWget $rawBaseURL$doc $baseLess"
     eval "$page"
     fi
  }
 
 function getPage() {
-        doc=${pages[$(($1 - 1))]}
+        doc=${fileNamesArray[$(($1 - 1))]}
         check_highlight
  }
 
- if [[ $topic -gt 0 ]]; then
+ if [[ $menuFileNumber -gt 0 ]]; then
     makePage
 else
-    sorry="#-------------> Invalid Input -  Type a number from 1-999"
+    sorry=$invalidInput
 fi
 
 echo
