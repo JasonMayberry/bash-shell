@@ -16,8 +16,12 @@ IFS=$'\n\t'
 # [2]. Follow the instructions in the README.md here:
 # https://github.com/JasonMayberry/bash-shell/blob/master/README.md
 # [3]. Run crepo with or without an argument as folows:
+# 
+# Example 1:
 # [me@linuxBox]~$ crepo   # will view default repo
+# Example 2:
 # [me@linuxBox]~$ crepo https://github.com/epety/100-shell-script-examples
+# 
 # [4]. Change repoRootURL to set the default repository as you see here:
 repoRootURL='https://github.com/JasonMayberry/bash-shell'
 #    Default URL     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
