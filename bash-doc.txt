@@ -89,7 +89,7 @@ alias seepdf='zathura'
 alias ebashrc='vi ~/.bashrc'
 alias rbashrc='source ~/.bashrc'
 #=========================================================================#
-# The next functions ACT AS AN ALIAS when added to the ~/.bashrc file
+#   The next functions ACT AS AN ALIAS when added to the ~/.bashrc file   #
 #=========================================================================#
                              # Example:
                              # prompt:$ vi_ 'a long with lots of spaces.txt'
