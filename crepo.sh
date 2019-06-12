@@ -1,4 +1,6 @@
 #!/bin/bash
+set -euo pipefail # Unofficial Bash Strict Mode
+IFS=$'\n\t'
 
 #---------- PURPOSE -----------#
 # Provides Github.com Repository file viewer with Menu for the terminal
@@ -22,7 +24,8 @@ repoRootURL='https://github.com/JasonMayberry/bash-shell'
 #
 #---------- DEPENDENCIES -------#
 # crepo requires "highlight" to be installed
-# [me@linuxBox]~$ sudo apt install highlight
+# On any Debian derivative it can be installed 
+# like this: [me@linuxBox]~$ sudo apt install highlight
 #
 #---------- NOTE ---------------#
 # With crepo the file suffix must be ".sh" and the bash script must have the
@@ -30,9 +33,16 @@ repoRootURL='https://github.com/JasonMayberry/bash-shell'
 #
 # That's it! The script will do the rest.
 
+
+## Default Expansions ##
+# ${1-default} will expand to default if not already set to something else.
+args=${1:-} # syntax for declaring a default value, using the ":-" operator
 baseWget="wget -qO- "
 baseLess=" | less"
+menuFileNumber=""
+sorry=""
 invalidInput="#-------------> Invalid Input -  Type a number from 1-999"
+declare -a fileNamesArray=()
 
 while true; do
 clear # Disable clear for troubleshooting
@@ -55,17 +65,20 @@ if [ ${#fileNamesArray[@]} -eq 0 ]; then
         getHTML=$(wget -qO- $repoRootURL)
         searchHTML=$(grep -i -o 'n-open" title=".*" id="' <<<"$getHTML")
         trimFileName=$(sed -e 's/^n-open" title="\([^"]\+\)".*$/\1/g' <<<"$searchHTML")
+        # Add "sort" file names some where in here
     }
 
-    if [ "$1" != "" ]; then
-        repoRootURL=$1
+    if [[ -z "$args" ]]; then # True if $args is zero length
         getFileNames
     else
+        repoRootURL=$args
         getFileNames
     fi
 fi
 
-declare -a fileNamesArray=($trimFileName) # Create an array from space delimited file names
+if [ ${#fileNamesArray[@]} -eq 0 ]; then
+    fileNamesArray=($trimFileName) # Create an array from space delimited file names
+fi
 
 theLength=${#fileNamesArray[@]} # get length of the array
 
@@ -77,15 +90,16 @@ do
 done
 
 
-
-if [ "$sorry" != "" ]; then
+if [ -n "$sorry" ]; then # True if the length of $var is not empty string
     echo
 fi
 echo $sorry
 if [ "$menuFileNumber" != 'q' ]; then
     echo "[ q to Quit ]"
 fi
-echo -n "Type a menuFileNumber number: "
+# Instructional user data prompt
+echo -n "Type a File Number from the Menu: "
+# Get users data (file number choice)
 read menuFileNumber
 echo
 # This "if statement" is useful for troubleshooting
@@ -120,8 +134,10 @@ function makePage() {
  }
 
 function check_highlight() {
-    # Maybe a case statement should be used here to test for all file types that "highlight" supports
+    # Maybe case statement should be used here to test for all file types that "highlight" supports
     # Try, catch, might make it more robust
+    # bash script must have the shebang(#!/bin/bash) as the first line to view
+    # Add "read line" test for the shebang (#!/bin/bash) for syntax highlighting
     if [[ $doc == *".sh" ]]; then
         if command -v highlight >/dev/null 2>&1 ; then
             highlight=" | highlight -O xterm256"
@@ -145,11 +161,13 @@ function getPage() {
         check_highlight
  }
 
- if [[ $menuFileNumber -gt 0 ]]; then
+# True if the length of $menuFileNumber is non-zero and also not the string "0"
+ if [[ -n "$menuFileNumber" && "$menuFileNumber" != "0" ]]; then
     makePage
 else
     sorry=$invalidInput
 fi
+
 
 echo
 
