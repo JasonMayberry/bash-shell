@@ -120,7 +120,7 @@ function makePage() {
  }
 
 function check_highlight() {
-    # Maybe case statement should be used here to test for all file types that "highlight" supports
+    # Maybe a case statement should be used here to test for all file types that "highlight" supports
     # Try, catch, might make it more robust
     if [[ $doc == *".sh" ]]; then
         if command -v highlight >/dev/null 2>&1 ; then
