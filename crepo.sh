@@ -18,7 +18,7 @@
 # [me@linuxBox]~$ crepo https://github.com/epety/100-shell-script-examples
 # [4]. Change repoRootURL to set the default repository as you see here:
 repoRootURL='https://github.com/JasonMayberry/bash-shell'
-#     Default URL      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+#    Default URL     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 #
 #---------- DEPENDENCIES -------#
 # crepo requires "highlight" to be installed
