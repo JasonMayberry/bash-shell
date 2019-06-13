@@ -2,31 +2,34 @@
 set -euo pipefail # Unofficial Bash Strict Mode
 IFS=$'\n\t'
 
-#---------- PURPOSE -----------#
+#------------ PURPOSE -------------#
 # Provides Github.com Repository file viewer with Menu for the terminal
 # Supported Syntax Highlighting for when viewing .sh files
 # It's a great way to keep your notes on the BASH Shell
 #
-#---------- COMPATIBILITY -----#
+#---------- COMPATIBILITY ---------#
 # Used only on "Ubuntu Linux" but I'm sure that with a few
 # "brew installs" you could get it working on Mac or Windows.
 
-#---------- USAGE -------------#
+#------------- USAGE --------------#
 # [1]. Add files in a common Github.com Repository
+
 # [2]. Follow the instructions in the README.md here:
-# https://github.com/JasonMayberry/bash-shell/blob/master/README.md
+#      https://github.com/JasonMayberry/bash-shell/blob/master/README.md
+
 # [3]. Run crepo with or without an argument as folows:
-# [me@linuxBox]~$ crepo   # will view default repo
-# [me@linuxBox]~$ crepo https://github.com/epety/100-shell-script-examples
+#      [me@linuxBox]~$ crepo   # will view default repo
+#      [me@linuxBox]~$ crepo https://github.com/epety/100-shell-script-examples
+
 # [4]. Change repo_URL to set the default repository, 
-# located on the first uncommented line this file.
+#      located on the first uncommented line this file.
 #
-#---------- DEPENDENCIES -------#
+#---------- DEPENDENCIES -----------#
 # crepo requires "highlight" to be installed
 # On any Debian derivative it can be installed 
 # like this: [me@linuxBox]~$ sudo apt install highlight
 #
-#---------- NOTE ---------------#
+#-------------- NOTE ---------------#
 # With crepo the file suffix must be ".sh" and the bash script must have the
 # shebang(#!/bin/bash) as the first line to view with syntax highlighting
 #
