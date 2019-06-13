@@ -16,12 +16,8 @@ IFS=$'\n\t'
 # [2]. Follow the instructions in the README.md here:
 # https://github.com/JasonMayberry/bash-shell/blob/master/README.md
 # [3]. Run crepo with or without an argument as folows:
-# 
-# Example 1:
 # [me@linuxBox]~$ crepo   # will view default repo
-# Example 2:
 # [me@linuxBox]~$ crepo https://github.com/epety/100-shell-script-examples
-# 
 # [4]. Change repoRootURL to set the default repository as you see here:
 repoRootURL='https://github.com/JasonMayberry/bash-shell'
 #    Default URL     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -64,12 +60,11 @@ if [ ${#fileNamesArray[@]} -eq 0 ]; then
 
     function getFileNames() {
         # Convert the repoRootURL into the rawBaseURL
-        rawBaseURL=$(sed -e 's/github/raw.githubusercontent/g' <<<"$repoRootURL/master/")
+        rawBaseURL="${repoRootURL/github/raw.githubusercontent}"/master/ 
         # Get all file names on the main page of the Github Repository.
         getHTML=$(wget -qO- $repoRootURL)
         searchHTML=$(grep -i -o 'n-open" title=".*" id="' <<<"$getHTML")
         trimFileName=$(sed -e 's/^n-open" title="\([^"]\+\)".*$/\1/g' <<<"$searchHTML")
-        # Add "sort" file names some where in here
     }
 
     if [[ -z "$args" ]]; then # True if $args is zero length
@@ -81,7 +76,8 @@ if [ ${#fileNamesArray[@]} -eq 0 ]; then
 fi
 
 if [ ${#fileNamesArray[@]} -eq 0 ]; then
-    fileNamesArray=($trimFileName) # Create an array from space delimited file names
+    sortNamesArray=($trimFileName) # Create an array from space delimited file names
+    fileNamesArray=($(sort <<<"${sortNamesArray[*]}"))
 fi
 
 theLength=${#fileNamesArray[@]} # get length of the array
@@ -147,11 +143,12 @@ function check_highlight() {
             highlight=" | highlight -O xterm256"
             baseLess=" | less -R"
             page="$baseWget $rawBaseURL$doc $highlight $baseLess"
-            # echo "$page" # enable echo for troubleshooting
+            echo "$page" # enable echo for troubleshooting
             eval "$page"
         else
-            sorry="#> highlight not found <# To install it run: sudo apt install highlight"
+            sorory="#> highlight not found <# To install it run: sudo apt install highlight"
             page="$baseWget $rawBaseURL$doc $baseLess"
+            echo "$page" # enable echo for troubleshooting
             eval "$page"
         fi
     else
