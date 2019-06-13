@@ -12,13 +12,14 @@ IFS=$'\n\t'
 # "brew installs" you could get it working on Mac or Windows.
 
 #------------- USAGE --------------#
-# [1]. Add files in a common Github.com Repository
+# [1]. Place some files in a common Github.com Repository
 
 # [2]. Follow the instructions in the README.md here:
 #      https://github.com/JasonMayberry/bash-shell/blob/master/README.md
 
-# [3]. Run crepo with or without an argument as folows:
-#      [me@linuxBox]~$ crepo   # will view default repo
+# [3]. Run crepo with or without a repo url as folows:
+#      Without a repo url = View Default Repository
+#      [me@linuxBox]~$ crepo
 #      [me@linuxBox]~$ crepo https://github.com/epety/100-shell-script-examples
 
 # [4]. Change repo_URL to set the default repository, 
