@@ -13,18 +13,18 @@ IFS=$'\n\t'
 
 #------------- USAGE --------------#
 # [1]. Place some files in a common Github.com Repository
-
+#
 # [2]. Follow the instructions in the README.md here:
 #      https://github.com/JasonMayberry/bash-shell/blob/master/README.md
-
+#
 # [3]. Run crepo with or without a repo url as folows:
 #      Without a repo url = View Default Repository
 #      [me@linuxBox]~$ crepo
 #      [me@linuxBox]~$ crepo https://github.com/epety/100-shell-script-examples
-
+#
 # [4]. Change repo_URL to set the default repository, 
 #      located on the first uncommented line this file.
-#
+
 #---------- DEPENDENCIES -----------#
 # crepo requires "highlight" to be installed
 # On any Debian derivative it can be installed 
