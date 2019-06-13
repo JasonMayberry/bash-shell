@@ -63,7 +63,7 @@ ytview ...................... Watch YouTube from Terminal
 
 
 # Add some helpful aliases to end of ~/.bashrc file
-alias getjdocs='wget -qO- https://raw.githubusercontent.com/JasonMayberry/bash-shell/master/jdocs.sh | cat > ~/bin/jdocs'
+alias bashman='wget -qO- https://www.gnu.org/software/bash/manual/bash.txt | less'
 alias l='ls -CF'
 alias l.='ls -d .* --color=auto'
 alias la='ls -A'
