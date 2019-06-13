@@ -143,12 +143,12 @@ function check_highlight() {
             highlight=" | highlight -O xterm256"
             baseLess=" | less -R"
             page="$baseWget $rawBaseURL$doc $highlight $baseLess"
-            echo "$page" # enable echo for troubleshooting
+            # echo "$page" # enable echo for troubleshooting
             eval "$page"
         else
             sorory="#> highlight not found <# To install it run: sudo apt install highlight"
             page="$baseWget $rawBaseURL$doc $baseLess"
-            echo "$page" # enable echo for troubleshooting
+            # echo "$page" # enable echo for troubleshooting
             eval "$page"
         fi
     else
