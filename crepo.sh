@@ -18,9 +18,8 @@ IFS=$'\n\t'
 # [3]. Run crepo with or without an argument as folows:
 # [me@linuxBox]~$ crepo   # will view default repo
 # [me@linuxBox]~$ crepo https://github.com/epety/100-shell-script-examples
-# [4]. Change repoRootURL to set the default repository as you see here:
-repoRootURL='https://github.com/JasonMayberry/bash-shell'
-#    Default URL     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+# [4]. Change repo_URL to set the default repository, 
+# located on the first uncommented line this file.
 #
 #---------- DEPENDENCIES -------#
 # crepo requires "highlight" to be installed
@@ -34,9 +33,11 @@ repoRootURL='https://github.com/JasonMayberry/bash-shell'
 # That's it! The script will do the rest.
 
 
-## Default Expansions ##
-# ${1-default} will expand to default if not already set to something else.
-args=${1:-} # syntax for declaring a default value, using the ":-" operator
+
+# Change Default url HERE to set the default repository:
+repo_URL=${1-'https://github.com/JasonMayberry/bash-shell'}
+#--------------> Default URL     ^^^^^^^^^^^^^^^^^^^^^^^^
+
 baseWget="wget -qO- "
 baseLess=" | less"
 menuFileNumber=""
@@ -46,33 +47,24 @@ declare -a fileNamesArray=()
 
 while true; do
 clear # Disable clear for troubleshooting
-
-echo "##### On which File Number do you want see? #####"
-echo "================================================="
-
+echo "##### Which Repository File Would you like to see? #####"
+echo "========================================================"
 if [ ${#fileNamesArray[@]} -eq 0 ]; then
+    # Displays a fake loading bar
     echo -ne '###########                     (33%)\r'
     sleep 1
-    echo -ne '###################             (66%)\r'
+    echo -ne '###################                  (66%)\r'
     sleep 1
-    echo -ne '#############################   (100%)\r'
+    echo -ne '#############################            (80%)\r'
+    sleep 1
+    echo -ne '######################################## (100%)\r'
     echo -ne '\n'
-
-    function getFileNames() {
-        # Convert the repoRootURL into the rawBaseURL
-        rawBaseURL="${repoRootURL/github/raw.githubusercontent}"/master/ 
-        # Get all file names on the main page of the Github Repository.
-        getHTML=$(wget -qO- $repoRootURL)
-        searchHTML=$(grep -i -o 'n-open" title=".*" id="' <<<"$getHTML")
-        trimFileName=$(sed -e 's/^n-open" title="\([^"]\+\)".*$/\1/g' <<<"$searchHTML")
-    }
-
-    if [[ -z "$args" ]]; then # True if $args is zero length
-        getFileNames
-    else
-        repoRootURL=$args
-        getFileNames
-    fi
+    # Convert the repo_URL into the rawBaseURL
+    rawBaseURL="${repo_URL/github/raw.githubusercontent}"/master/ 
+    # Get all file names on the main page of the Github Repository.
+    getHTML=$(wget -qO- $repo_URL)
+    searchHTML=$(grep -i -o 'n-open" title=".*" id="' <<<"$getHTML")
+    trimFileName=$(sed -e 's/^n-open" title="\([^"]\+\)".*$/\1/g' <<<"$searchHTML")
 fi
 
 if [ ${#fileNamesArray[@]} -eq 0 ]; then
@@ -81,7 +73,6 @@ if [ ${#fileNamesArray[@]} -eq 0 ]; then
 fi
 
 theLength=${#fileNamesArray[@]} # get length of the array
-
 # Draw the Menu each time the array is looped over
 for (( i=0; i<${theLength}; i++ ));
 do
@@ -89,8 +80,7 @@ do
     echo $ii
 done
 
-
-if [ -n "$sorry" ]; then # True if the length of $var is not empty string
+if [ -n "$sorry" ]; then # True if length non-zero
     echo
 fi
 echo $sorry
@@ -143,12 +133,12 @@ function check_highlight() {
             highlight=" | highlight -O xterm256"
             baseLess=" | less -R"
             page="$baseWget $rawBaseURL$doc $highlight $baseLess"
-            # echo "$page" # enable echo for troubleshooting
+            echo "$page" # enable echo for troubleshooting
             eval "$page"
         else
             sorory="#> highlight not found <# To install it run: sudo apt install highlight"
             page="$baseWget $rawBaseURL$doc $baseLess"
-            # echo "$page" # enable echo for troubleshooting
+            echo "$page" # enable echo for troubleshooting
             eval "$page"
         fi
     else
@@ -169,7 +159,5 @@ else
     sorry=$invalidInput
 fi
 
-
 echo
-
 done
