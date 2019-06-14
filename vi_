@@ -2,15 +2,15 @@
 
 # Usage Example:
 #
+# Either way, w or w/o quotes
 # $ vi_ name of file.txt
-# or
 # $ vi_ 'name of file.txt'
 #
 # $ ls 
 # name_of_file.txt
 # 
-# Either way the spaces in the file name will be replaced with underscores 
-# and a new file will be opened in Vim with NO spaces in the file name.
+# Starts vim with the supplied string as the 
+# file name replacing spaces with underscores
 
 strWithSpace="${*}"
 vim "${strWithSpace// /_}"
