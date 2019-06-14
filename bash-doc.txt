@@ -92,9 +92,7 @@ alias rbashrc='source ~/.bashrc'
 #   The next functions ACT AS AN ALIAS when added to the ~/.bashrc file   #
 #=========================================================================#
                              # Example:
-                             # prompt:$ vi_ 'a long with lots of spaces.txt'
-vi_() { vim "${@// /_}"; }   # Starts vim with the supplied string as the 
-                             # file name replacing spaces with underscores
+                             # prompt:$ vi- 'a long file name with lots of spaces.txt'
 vi-() { vim "${@// /-}"; }   # replace spaces with -
 vip() { vim "${@// /.}"; }   # replace spaces with .
 
