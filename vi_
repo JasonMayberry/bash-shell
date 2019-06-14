@@ -11,3 +11,4 @@
 
 strWithSpace="${*}"
 vim "${strWithSpace// /_}"
+
