@@ -6,6 +6,9 @@
 # or
 # $ vi_ 'name of file.txt'
 #
+# $ ls 
+# name_of_file.txt
+# 
 # Either way the spaces in the file name will be replaced with underscores 
 # and a new file will be opened in Vim with NO spaces in the file name.
 
