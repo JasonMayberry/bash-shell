@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# Usage Example:
+#
+# $ vi_ name of file.txt
+# or
+# $ vi_ 'name of file.txt'
+#
+# Either way the spaces in the file name will be replaced with underscores 
+# and a new file will be opened in Vim with NO spaces in the file name.
+
+strWithSpace="${*}"
+vim "${strWithSpace// /_}"
