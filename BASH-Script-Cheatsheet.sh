@@ -93,7 +93,7 @@ name="John"
  echo ${food:-Cake}  #=> $food or "Cake"
 length=2
  echo ${name:0:length}  #=> "Jo"
- # See: Parameter expansion
+ # See: Parameter expansion: Pattern Substitution
 STR="/path/to/foo.cpp"
  echo ${STR%.cpp}    # /path/to/foo
  echo ${STR%.cpp}.o  # /path/to/foo.o
