@@ -72,8 +72,7 @@ if [ ${#fileNamesArray[@]} -eq 0 ]; then
 fi
 
 if [ ${#fileNamesArray[@]} -eq 0 ]; then
-    sortNamesArray=($trimFileName) # Create an array from space delimited file names
-    fileNamesArray=($(sort <<<"${sortNamesArray[*]}"))
+    fileNamesArray=($trimFileName) # Create an array from space delimited file names
 fi
 
 theLength=${#fileNamesArray[@]} # get length of the array
