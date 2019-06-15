@@ -78,7 +78,6 @@ alias links2g='links2 -g google.com'
 alias linksb='links bing.com'
 alias linksd='links duckduckgo.com'
 alias linksg='links google.com'
-alias clrh='> .bash_history'
 alias clsa='printf "\033c"' # Clear screen (all)
 alias cls='clear' # Clear screen
 alias files='pcmanfm' # thunar (Case or if would be good here)
