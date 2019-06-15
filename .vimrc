@@ -418,7 +418,7 @@ syntax on
 " => Absolute Line Numbers
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " turn absolute line numbers on
-" :set number
+:set number
 " :set nu
 
 " turn absolute line numbers off
@@ -450,7 +450,7 @@ syntax on
 " => Hybrid Line Numbers
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " turn hybrid line numbers on
-:set number relativenumber
+" :set number relativenumber "last used
 " :set nu rnu
 
 " turn hybrid line numbers off
@@ -460,4 +460,8 @@ syntax on
 " toggle hybrid line numbers
 " :set number! relativenumber!
 " :set nu! rnu!
+
+
+"This unsets the last search pattern register by hitting return
+nnoremap <CR> :noh<CR><CR>
 
