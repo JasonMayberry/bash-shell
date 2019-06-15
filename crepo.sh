@@ -68,7 +68,9 @@ if [ ${#fileNamesArray[@]} -eq 0 ]; then
     # Get all file names on the main page of the Github Repository.
     getHTML=$(wget -qO- $repo_URL)
     searchHTML=$(grep -i -o 'n-open" title=".*" id="' <<<"$getHTML")
-    trimFileName=$(sed -e 's/^n-open" title="\([^"]\+\)".*$/\1/g' <<<"$searchHTML")
+    # Trim prefix and suffix from each file name
+    # trimFileName=$(sed -e 's/^n-open" title="\([^"]\+\)".*$/\1/g' <<<"$searchHTML")
+    pre=${searchHTML//n-open\" title=\"/}; trimFileName=${pre//\" id=\"/}
 fi
 
 if [ ${#fileNamesArray[@]} -eq 0 ]; then
