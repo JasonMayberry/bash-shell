@@ -83,18 +83,24 @@ alias clsa='printf "\033c"' # Clear screen (all)
 alias cls='clear' # Clear screen
 alias files='pcmanfm' # thunar (Case or if would be good here)
 alias hist='history'
+alias exe='chmod 755'
+alias path='echo -e "${PATH//:/\\n}"'
+alias bin='cd ~/bin/'
 alias desk='cd ~/Desktop/'
 alias seepdf='zathura'
 # alias subl='sublime-text' # open using subl or sublime-text by default
 alias ebashrc='vi ~/.bashrc'
-alias rbashrc='source ~/.bashrc'
+alias refbash='source ~/.bashrc'
 #=========================================================================#
 #   The next functions ACT AS AN ALIAS when added to the ~/.bashrc file   #
 #=========================================================================#
-                             # Example:
-                             # prompt:$ vi- 'a long file name with lots of spaces.txt'
-vi-() { vim "${@// /-}"; }   # replace spaces with -
-vip() { vim "${@// /.}"; }   # replace spaces with .
+# Example~$ r- a long file name with lots of spaces.txt
+# output: a-long-file-name-with-lots-of-spaces.txt
+r_() { strWithSpace="${*}"; echo "${strWithSpace// /_}"; } # replace spaces with _
+r-() { strWithSpace="${*}"; echo "${strWithSpace// /-}"; } # replace spaces with -
+rd() { strWithSpace="${*}"; echo "${strWithSpace// /.}"; } # replace spaces with .
+capt() { strToCap="${*}"; echo "${strToCap^^}"; }
+lower() { strToLower="${*}"; echo "${strToLower,,}"; }
 
 
 
