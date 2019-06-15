@@ -96,9 +96,10 @@ alias refbash='source ~/.bashrc'
 # Example:
 # ~$ vi- 'a long file name with lots of spaces.txt'
 vi_() { strVim="${*}"; vim "${strVim// /_}"; } # replace spaces with _
-vi-() { vim "${@// /-}"; }   # replace spaces with -
-vip() { vim "${@// /.}"; }   # replace spaces with .
-# Example~$ r- a long file name with lots of spaces.txt
+vi-() { strVim="${*}"; vim "${strVim// /-}"; } # replace spaces with -
+vid() { strVim="${*}"; vim "${strVim// /.}"; } # replace spaces with .
+# Example:
+# ~$ r- a long file name with lots of spaces.txt
 # output: a-long-file-name-with-lots-of-spaces.txt
 r_() { strWithSpace="${*}"; echo "${strWithSpace// /_}"; } # replace spaces with _
 r-() { strWithSpace="${*}"; echo "${strWithSpace// /-}"; } # replace spaces with -
