@@ -245,8 +245,8 @@ DIR=${SRC%$BASE}  #=> "/path/to/" (dirpath)
    #====================================#
    # Condition       |      Description #
    #====================================#
-   [[ -z STRING ]]        # Empty string          
-   [[ -n STRING ]]        # Not empty string      
+   [[ -n $var ]]          # True if the length of $var is non-zero
+   [[ -z $var ]]          # True if zero length
    [[ STRING == STRING ]] # Equal                 
    [[ STRING != STRING ]] # Not Equal             
    [[ NUM -eq NUM ]]      # Equal                 
