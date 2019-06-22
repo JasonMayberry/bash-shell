@@ -8,7 +8,7 @@ Quitting
 Files
    :w file -write to file
    :r file -read file in after line
-   vim t.txt t.txt -open more files
+   vim file1 file2 -open 2 arg files
    :args -see list of open args
    :argadd t.txt -add to args list
    :argdelete t.txt -delete arg(s)
@@ -20,6 +20,9 @@ Files
    :N <-goto previous file
    :2N <-go 2 files left
    :e file.txt -open file in vim
+
+File Tabs
+   vim -p file1 file2 -open 2 tabs
    :tabe file.txt -open new tab
    :tabn -Goto next tab file
    :tabp -Goto previous tab file
