@@ -33,6 +33,9 @@
 " Sets how many lines of history VIM has to remember
 set history=500
 
+" map spell check to F8 key
+map <F8> :setlocal spell! spelllang=en_us <CR>
+
 " Enable filetype plugins
 filetype plugin on
 filetype indent on
@@ -56,7 +59,7 @@ command W w !sudo tee % > /dev/null
 " => VIM user interface
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Set 7 lines to the cursor - when moving vertically using j/k
-set so=7
+set so=3
 
 " Avoid garbled characters in Chinese language windows OS
 let $LANG='en' 
@@ -409,7 +412,7 @@ set nocompatible              " be iMproved, required
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Mouse Scrolling
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set mouse=nicr
+" set mouse=nicr
 
 syntax on
 
