@@ -24,9 +24,11 @@ Files
 File Tabs
    vim -p file1 file2 -open 2 tabs
    :tabe file.txt -open new tab
+   :tabonly -close all but current
    :tabn -Goto next tab file
    :tabp -Goto previous tab file
    gt -goto next tab file (loop)
+   2gt -takes you to 2nd tab
 
 Set
    :set nu -numbered lines
