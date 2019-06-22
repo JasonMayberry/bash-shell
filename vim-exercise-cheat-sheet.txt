@@ -182,6 +182,7 @@ Visual Mode
 
 Format
    == -auto format indentation
+   =i{ -indent inside {}
    gg=G -fix the indentation global
    :66,70s/^/# / -Commenting
    :66,70s/^#/ -Uncommenting
