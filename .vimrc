@@ -403,6 +403,7 @@ set nocompatible              " be iMproved, required
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Remap ESC to ii
 " :imap ii <Esc>
+:imap jj <Esc>
 
 " Simply swap the two keys:
 " nnoremap ; :
