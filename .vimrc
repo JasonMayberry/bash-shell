@@ -33,9 +33,6 @@
 " Sets how many lines of history VIM has to remember
 set history=500
 
-" map spell check to F8 key
-map <F8> :setlocal spell! spelllang=en_us <CR>
-
 " Enable filetype plugins
 filetype plugin on
 filetype indent on
@@ -210,6 +207,9 @@ vnoremap <silent> # :<C-u>call VisualSelection('', '')<CR>?<C-R>=@/<CR><CR>
 map <space> /
 map <c-space> ?
 
+" This unsets the last search pattern register by hitting return
+" nnoremap <CR> :noh<CR><CR>
+
 " Disable highlight when <leader><cr> is pressed
 map <silent> <leader><cr> :noh<cr>
 
@@ -305,6 +305,11 @@ endif
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Spell checking
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" map spell check to F8 key
+" will toggle and untoggle spell checking
+" map <F8> :setlocal spell! spelllang=en_us <CR>
+
 " Pressing ,ss will toggle and untoggle spell checking
 map <leader>ss :setlocal spell!<cr>
 
@@ -465,6 +470,4 @@ syntax on
 " :set nu! rnu!
 
 
-"This unsets the last search pattern register by hitting return
-nnoremap <CR> :noh<CR><CR>
 
