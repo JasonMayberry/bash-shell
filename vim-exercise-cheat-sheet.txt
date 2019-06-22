@@ -8,6 +8,7 @@ Quitting
 Files
    :w file -write to file
    :r file -read file in after line
+   :Explore -open vim file explorer
    vim file1 file2 -open 2 arg files
    :args -see list of open args
    :argadd t.txt -add to args list
@@ -23,6 +24,7 @@ Files
 
 File Tabs
    vim -p file1 file2 -open 2 tabs
+   :Texplore -open file explorer tab
    :mksession work.vim -save session
    vim -S work.vim -open session
    :source work.vim -open session
