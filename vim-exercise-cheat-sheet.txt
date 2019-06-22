@@ -128,6 +128,7 @@ Navigation      ^
    $ -goto end of line
    mm -sets mark
    `m -goto mark m
+   :marks -list of all marks
 
 Change
    cc -change entire line
