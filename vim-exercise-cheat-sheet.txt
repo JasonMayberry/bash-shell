@@ -126,8 +126,9 @@ Navigation      ^
    B <-goto begin of word÷spaces
    0 -goto beginning of line
    $ -goto end of line
-   mm -sets mark
-   `m -goto mark m
+   ma -sets local mark
+   mA -sets global to path mark
+   `a -goto mark a
    :marks -list of all marks
 
 Change
