@@ -68,6 +68,7 @@ Inserting text
 Insert Mode Shortcuts
    ctrl+w -delete word b4 cursor
    ctrl+u -delete line b4 cursor
+   ctrl+n -autocomplete
 
 Text Objects
    ca' -change all quotes & 'quoted'
