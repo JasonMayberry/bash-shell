@@ -159,6 +159,7 @@ Visual Mode
    v -enter visual mode
    V -enter visual Line mode
    ctrl+v -enter vis. Block mode
+   ggvG -visual select all
    y -yank/copy selected
    o -cursor to opposite end
    O -cursor to opposite side
@@ -190,6 +191,14 @@ Special
    :%retab -replace all tabs with spaces
    xp -transpose two letters
    & -repeat last :s cmd
+   sort -sort the whole doc
+   22,33sort -sort line 22-33
+   :'a,.sort -from marker a, to caret
+   :%sort! -sort in reverse
+   :%sort u -remove duplicate lines
+   :sort n -do numeric sort
+   :sort i -case is ignored
+   :help sort -more options
    ~ -toggle case
    . -repeat last cmd
    :! -drop to external cmd
