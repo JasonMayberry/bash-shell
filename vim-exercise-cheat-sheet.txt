@@ -23,6 +23,10 @@ Files
 
 File Tabs
    vim -p file1 file2 -open 2 tabs
+   :mksession work.vim -save session
+   vim -S work.vim -open session
+   :source work.vim -open session
+   :mks! -save changes to session
    :tabe file.txt -open new tab
    :tabonly -close all but current
    :tabn -Goto next tab file
