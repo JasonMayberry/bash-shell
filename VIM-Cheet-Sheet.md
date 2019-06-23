@@ -135,9 +135,9 @@
    **ctrl+O** `-Retrace moves backwards`  
    **ctrl+I** `-Retrace moves forwards`  
    **/pat** `-iterate all matching words`  
-   `-iterate words same as current`  
-      **N** `-next one up`  
-      **n** `-next one down`  
+   > `-iterate words same as current`  
+   > - **N** `-next one up`  
+   > - **n** `-next one down`  
    **#** `-goto previous match of current`  
    **G** `- goto to end of file`  
    **fc** `-go forward to 'c'`  
@@ -204,10 +204,10 @@
    **R** `-del. select, starts i mode`  
    **va'** `-vis. select all 'quoted'`  
    **vi'** `-vis. select inside quotes'`  
-  {select block, press c, change 1st  
-  line, press <Esc> twice, replaces   
-  block by the same text in 1st line.  
-  This also works with i, I or A }  
+   > Select block, press c, change 1st  
+   > line, press <Esc> twice, replaces   
+   > block by the same text in 1st line.  
+   > This also works with i, I or A
     
 ## Format  
    **==** `-auto format indentation`  
