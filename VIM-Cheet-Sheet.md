@@ -1,4 +1,4 @@
-#** VIM  
+# VIM  
     
 ### Quitting  
    **ZZ** `-exit, saving changes`  
@@ -51,7 +51,7 @@
    **:Vexplore** `-vertical file explorer`  
    **:Vexplore!** `-open f. explorer on right`  
   *Resizing:*  
-   **ctrl-w 2** `-** `-drop window height`  
+   **ctrl-w 2 -** `-drop window height`  
    **ctrl-w 2 +** `-rise window height`  
    **ctrl-w 2 <** `-narrow window width`  
    **ctrl-w 2 >** `-widen window width`  
@@ -101,23 +101,23 @@
    **diw** `-delete in word`  
    **di'** `-delete text inside quotes'`  
    **da'** `-delete all quotes & 'quoted'`  
-   **df␣ ** `-delete to space include space `  
-   **dt␣ ** `-delete till space`  
+   **df␣** `-delete to space include space`   
+   **dt␣** `-delete till space`  
    **va'** `-vis. select all quotes & 'quoted'`  
    **vi'** `-vis. select text inside quotes'`  
    **ya'** `-yank all quotes & 'quoted'`  
    **yi'** `-yank text inside quotes'`  
     
 ## Navigation  
-      `^  
+       ^  
        k  
     <h   l>  
        j  
-       v`     
+       v     
    **8j** `-move 8 lines down`  
    **gj** `-down 1 wrapped line`  
    **8gg** `-goto line 8`  
-   **:8 ** `-goto line 8`  
+   **:8** `-goto line 8`  
    **50%** `-goto middle of doc`  
    **%** `-focus on the opposite brace`  
    **gi** `-back to last insert`  
@@ -129,15 +129,15 @@
    **zb** `-work on bottom of screen`  
    **^** `-first non-blank char`  
    **g_** `-last non-blank char`  
-   **ctrl+y & ctrl+e** `-scroll ONE line`  
-   **ctrl+u & ctrl+d** `-scroll HALF-page`  
-   **ctrl+b & ctrl+f** `-scroll FULL-page`  
+   **ctrl+y** & **ctrl+e** `-scroll ONE line`  
+   **ctrl+u** & **ctrl+d** `-scroll HALF-page`  
+   **ctrl+b** & **ctrl+f** `-scroll FULL-page`  
    **ctrl+O** `-Retrace moves backwards`  
    **ctrl+I** `-Retrace moves forwards`  
    **/pat** `-iterate all matching words`  
-   ***** `-iterate words same as current`  
-   **N** `-next one up`  
-   **n** `-next one down`  
+   `-iterate words same as current`  
+      **N** `-next one up`  
+      **n** `-next one down`  
    **#** `-goto previous match of current`  
    **G** `- goto to end of file`  
    **fc** `-go forward to 'c'`  
@@ -152,7 +152,7 @@
    **$** `-goto end of line`  
    **ma** `-sets local mark`  
    **mA** `-sets global to path mark`  
-   **`a** `-goto mark a`  
+   **\`a** `-goto mark a`  
    **:marks** `-list of all marks`  
     
 ## Change  
@@ -163,9 +163,9 @@
     
 ## Delete     
    **:1,$d** `-delete all lines`  
-   or :%d or ggdG  
+  `or :%d or ggdG`  
    **x** `->delete char to the right`  
-   X <-delete char to the left  
+   **X** `<-delete char to the left`  
    **D** `-delete to the end of line`  
    **dd** `-delete current line`  
    **:d** `-delete current line`  
@@ -216,7 +216,7 @@
    **:66,70s/^/# /** `-Commenting`  
    **:66,70s/^#/** `-Uncommenting`  
    **:12,20>** `-Indent`  
-   **:12,20>>> ** `-Indents 3 times`  
+   **:12,20>>>** `-Indents 3 times`  
    **5>>** `-Indents 5 lines`  
    **5>>..** `-Repeats 5>> twice`  
     
