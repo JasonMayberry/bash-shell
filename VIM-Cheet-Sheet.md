@@ -1,9 +1,9 @@
 # VIM  
     
-# Quitting  
-     **ZZ** -exit, saving changes  
-     :w -write/save changes  
-     ZQ -exit, ignore changes  
+## Quitting
+   **ZZ** -exit, saving changes  
+   **:w** -write/save changes  
+   **ZQ** -exit, ignore changes  
     
 # Files  
      :w file -write to file  
