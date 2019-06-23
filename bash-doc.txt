@@ -88,6 +88,7 @@ alias bin='cd ~/bin/'
 alias desk='cd ~/Desktop/'
 alias seepdf='zathura'
 # alias subl='sublime-text' # open using subl or sublime-text by default
+alias vicheet='vim-cheet-sheet.sh --color=always | less -r'
 alias ebashrc='vi ~/.bashrc'
 alias refbash='source ~/.bashrc'
 #=========================================================================#
