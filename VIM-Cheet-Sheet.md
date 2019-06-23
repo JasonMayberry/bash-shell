@@ -206,7 +206,7 @@
    **va'** `-vis. select all 'quoted'`  
    **vi'** `-vis. select inside quotes'`  
    > Select block, press c, change 1st  
-   > line, press <Esc> twice, replaces   
+   > line, press Esc twice, replaces   
    > block by the same text in 1st line.  
    > This also works with i, I or A
     
