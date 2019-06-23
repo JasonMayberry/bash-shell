@@ -1,8 +1,10 @@
-﻿. VIM .
+VIM
+
 Quitting
    ZZ -exit, saving changes
    :w -write/save changes
    ZQ -exit, ignore changes
+
 Files
    :w file -write to file
    :r file -read file in after line
@@ -19,6 +21,7 @@ Files
    :N <-goto previous file
    :2N <-go 2 files left
    :e file.txt -open file in vim
+
 File Tabs
    vim -p file1 file2 -open 2 tabs
    :Texplore -open file explorer tab
@@ -32,6 +35,7 @@ File Tabs
    :tabp -Goto previous tab file
    gt -goto next tab file (cycle)
    2gt -takes you to 2nd tab
+
 Split Window
    :split file -split, load file
    :vsplit file -vertical split
@@ -51,7 +55,8 @@ Split Window
    ctrl-w 2 + -rise window height
    ctrl-w 2 < -narrow window width
    ctrl-w 2 > -widen window width
-Set
+
+Settings
    :set nu -numbered lines
    :set nonu -no numbered lines
    :set rnu -relative numbered lines
@@ -74,6 +79,7 @@ Set
    :set shiftwidth=4 -width of indent
    :set smarttab -auto indent on
    :help smarttab -more details
+
 Inserting text
    i -insert
    I -insert at line beginning
@@ -82,10 +88,12 @@ Inserting text
    o -open on lower line
    O -open on Upper line
    s -substitute character
+
 Insert Mode Shortcuts
    ctrl+w -delete word b4 cursor
    ctrl+u -delete line b4 cursor
    ctrl+n -autocomplete
+
 Text Objects
    ca' -change all quotes & 'quoted'
    ci' -change inside quotes'
@@ -99,6 +107,7 @@ Text Objects
    vi' -vis. select text inside quotes'
    ya' -yank all quotes & 'quoted'
    yi' -yank text inside quotes'
+
 Navigation
            ^
            k
@@ -145,11 +154,13 @@ Navigation
    mA -sets global to path mark
    `a -goto mark a
    :marks -list of all marks
+
 Change
    cc -change entire line
    cw -change word
    cW -change all to next space
    C -change to the end of line
+
 Delete   
    :1,$d -delete all lines
    or :%d or ggdG
@@ -164,18 +175,21 @@ Delete
    dt? ->delete to first "?"
    dF? <-delete back through first "?"
    dT? <-delete back to first "?"
+
 Replace
    r -replace char not insert
    R -replace chars not insert
    :s/pattern/string/flags
    g -flag, replace all occurrences
    c -flag, confirm replaces
+
 Copy & Paste
    yy -yank/copy line
    5yy -yank 5 lines
    :12,16y -yank 5 lines
    p -put/paste on lower line
    P -put/paste on Upper line
+
 Visual Mode
    v -enter visual mode
    V -enter visual Line mode
@@ -194,6 +208,7 @@ Visual Mode
   line, press <Esc> twice, replaces 
   block by the same text in 1st line.
   This also works with i, I or A }
+
 Format
    == -auto format indentation
    =i{ -indent inside {}
@@ -204,6 +219,7 @@ Format
    :12,20>>>  -Indents 3 times
    5>> -Indents 5 lines
    5>>.. -Repeats 5>> twice
+
 Special
    :h -Great help info!
    ctrl+] -goto tag when caret is over it
@@ -225,11 +241,13 @@ Special
    :! -drop to external cmd
    !!ls -insert output of cmd
    == -duplicate operator
+
 Code Folding
    zf -fold visible line selected
    2zfj -fold 3 lines down
    za -unfold last fold
    zR -unfold all 
+
 Undo  
    u -undo last change
    U -undo all changes to line
