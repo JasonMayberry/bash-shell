@@ -138,6 +138,7 @@
    > `-iterate words same as current`  
    > - **N** `-next one up`  
    > - **n** `-next one down`  
+
    **#** `-goto previous match of current`  
    **G** `- goto to end of file`  
    **fc** `-go forward to 'c'`  
