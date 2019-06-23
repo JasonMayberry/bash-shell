@@ -1,7 +1,8 @@
 # VIM  
     
 ## Quitting
-   **ZZ** ```diff + -exit, saving changes```  
+```diff
+   **ZZ** -exit, saving changes```  
    **:w** `-write/save changes`  
    **ZQ** `-exit, ignore changes`  
    ```diff
