@@ -1,17 +1,9 @@
 # VIM  
     
 ## Quitting
-
-   ```diff
-   + **ZZ** -exit, saving changes  
-   - **ZZ** -exit, saving changes  
-   ```
-   **:w** `-write/save changes`  
+   **ZZ** -`exit, saving changes`  
+   **:w** -`write/save changes`  
    **ZQ** `-exit, ignore changes`  
-   ```diff
-   + this will be highlighted in green
-   - this will be highlighted in red
-   ```
     
 # Files  
      :w file -write to file  
