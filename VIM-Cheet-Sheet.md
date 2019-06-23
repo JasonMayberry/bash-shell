@@ -1,7 +1,7 @@
 # VIM  
     
 # Quitting  
-     __ZZ__ -exit, saving changes  
+     **ZZ** -exit, saving changes  
      :w -write/save changes  
      ZQ -exit, ignore changes  
     
