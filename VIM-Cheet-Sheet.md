@@ -50,7 +50,7 @@
      :Sexplore -split, open file explorer  
      :Vexplore -vertical file explorer  
      :Vexplore! -open f. explorer on right  
-#### Resizing:  
+    Resizing:  
      ctrl-w 2 - -drop window height  
      ctrl-w 2 + -rise window height  
      ctrl-w 2 < -narrow window width  
@@ -152,7 +152,7 @@
      $ -goto end of line  
      ma -sets local mark  
      mA -sets global to path mark  
-     \\`a -goto mark a  
+     `a -goto mark a  
      :marks -list of all marks  
     
 # Change  
