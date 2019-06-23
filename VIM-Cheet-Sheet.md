@@ -1,4 +1,4 @@
-# VIM  
+# Jason's Big but Brief -> Vim Cheat Sheet  
     
 ### Quitting  
    **ZZ** `-exit, saving changes`  
