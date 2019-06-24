@@ -199,6 +199,13 @@ set wrap "Wrap lines
 vnoremap <silent> * :<C-u>call VisualSelection('', '')<CR>/<C-R>=@/<CR><CR>
 vnoremap <silent> # :<C-u>call VisualSelection('', '')<CR>?<C-R>=@/<CR><CR>
 
+" Clever Visual Block Paste
+" 'p' to paste, 'gv' to re-select what was originally selected. 'y' to copy it again
+" xnoremap p pgvy
+" This will work only with the default register, 
+" but this mapping is easy to remember).
+" Also, you still can use P to get the old behaviour.
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Moving around, tabs, windows and buffers
