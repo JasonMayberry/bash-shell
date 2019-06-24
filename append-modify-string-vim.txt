@@ -1,8 +1,6 @@
 
 
 
-
-
 The quick brown fox jumps over the lazy dog!
 
 :%s/^The quick brown\(.\{-}\)lazy dog!$/The old red\1leg-hold trap!/g
@@ -13,6 +11,40 @@ The quick brown fox jumps over the lazy dog!
 # Running this gives you:
 
 The old red fox jumps over the leg-hold trap!
+
+
+
+
+
+
+Existing string:
+   **ZQ** `-exit, ignore changes`
+
+Vim String Substitution Command:
+:%s/^\s\+\*\*\(.\{-}\)\*\* \`\(.\{-}\)\`/printf \"${Command}   \1${Description} \2${NC}\\n\"/g
+
+Modified String after running the Vim substitution:
+printf "${Command}   ZQ${Description} -exit, ignore changes${NC}\n"
+
+HOW IT WORKS:
+
+:                     command will follow
+%                     matches all lines in the whole file
+s/                    substitution string
+^                     the beginning of the line
+\s                    one space, the first in this case
+\+                    any number of the preceding character
+\*\*                  literally match **
+\( expresion \)       save whatever matches the inner expression to the register \1
+.\{-}                 match any number of any kind of character
+\*\* \`               literally match ** `
+\( expresion \)       save whatever matches the inner expression to the register \2
+\`                    literally match `
+/replacement string/  Substitute every string that matches the above criteria with everything that is between the //
+like this:            /printf \"${Command}   \1${Description} \2${NC}\\n\"/
+g                     last but not least g is the global flag to do this to the whole file
+
+
 
 
 
