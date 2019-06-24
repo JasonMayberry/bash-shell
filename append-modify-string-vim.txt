@@ -9,8 +9,10 @@ The quick brown fox jumps over the lazy dog!
 
 # The .\{-} will match "any number of characters before the "lazy dog!", non-greedily" (:help /\{)
 # The \( and \) mark it as a captured group that will then be used in the substitution 
-# as \1 (the first captured group). Running this gives you:
-# The old red fox jumps over the leg-hold trap!
+# as \1 (the first captured group).
+# Running this gives you:
+
+The old red fox jumps over the leg-hold trap!
 
 
 
