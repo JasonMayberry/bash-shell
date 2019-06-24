@@ -1,0 +1,53 @@
+
+
+
+
+
+The quick brown fox jumps over the lazy dog!
+
+:%s/^The quick brown\(.\{-}\)lazy dog!$/The old red\1leg-hold trap!/g
+
+# The .\{-} will match "any number of characters before the "lazy dog!", non-greedily" (:help /\{)
+# The \( and \) mark it as a captured group that will then be used in the substitution 
+# as \1 (the first captured group). Running this gives you:
+# The old red fox jumps over the leg-hold trap!
+
+
+
+
+
+For more info see:
+https://stackoverflow.com/questions/55048878/vim-search-and-append-modify/55059623#55059623
+
+You can replace the results with parts of the match by using submatches. For instance, say you have the following html:
+<img src="foo_one.png" />
+<img src="bar_two.png" />
+You can run this command:
+
+:%s/"\(.\{-}\)\.png"/"\1.png" title="\1" alt="\1"/g
+The .\{-} will match "any number of characters before the .png part, non-greedily" (:help /\{), and the brackets around it, \( and \) mark it as a captured group that will then be used in the substitution as \1 (the first captured group). Running this gives you:
+
+<img src="foo_one.png" title="foo_one" alt="foo_one" />
+<img src="bar_two.png" title="bar_two" alt="bar_two" />
+Now, if you need a more complicated substitution, like turning the filename into a human-readable string, you could use the \= substitution flag to replace the string with any expression, like a function call. For instance, here's what we could run on the above text:
+
+:%s/title="\zs\(.\{-}\)\ze"/\=lib#CamelCase(submatch(1))/g
+This uses two Vim-specific patterns: \zs and \ze. Those are "match start" and "match end". The thing that will be searched for is the entire pattern, title=.... However, what will be replaced is only between \zs and \ze. This makes it easier to use the result of lib#CamelCase as a direct replacement.
+
+Note that you don't need the \(/\) brackets this time around, because you can just use submatch(0) for "the entire match":
+
+%s/title="\zs.\{-}\ze"/\=lib#CamelCase(submatch(0))/g
+The function lib#CamelCase is my own function that's implemented like so:
+
+function! lib#CamelCase(word)
+  return substitute(a:word, '_\(.\)', '\U\1', 'g')
+endfunction
+You can write any function that takes some input and returns a replacement string, doing whatever you need.
+
+I'm not sure what your level of experience is with both Vim and regular expressions, so it's hard to give specific advice, and Vim substitutions are a big topic. I can recommend you read up on these help topics:
+
+:help pattern-overview
+:help sub-replace-special
+:help sub-replace-expression
+
+
