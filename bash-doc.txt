@@ -59,8 +59,11 @@ ytview ...................... Watch YouTube from Terminal
 
 
 
+# Export ~/bin to the execution path
+export PATH="$HOME/bin:$PATH"
 
-
+# keeps your history in sync across sessions
+PROMPT_COMMAND='history -a ; history -n'
 
 # Add some helpful aliases to end of ~/.bashrc file
 alias bashman='wget -qO- https://www.gnu.org/software/bash/manual/bash.txt | less'
