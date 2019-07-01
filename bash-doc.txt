@@ -110,7 +110,8 @@ r-() { strWithSpace="${*}"; echo "${strWithSpace// /-}"; } # replace spaces with
 rd() { strWithSpace="${*}"; echo "${strWithSpace// /.}"; } # replace spaces with .
 capt() { strToCap="${*}"; echo "${strToCap^^}"; }
 lower() { strToLower="${*}"; echo "${strToLower,,}"; }
-
+# MUST HAVE epiphany installed
+bing() { bingSearch="${*}"; epiphany https://www.bing.com/search?q="${bingSearch}"; }
 
 
 
