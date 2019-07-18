@@ -35,6 +35,7 @@ cmatrix ..................... Shows the Matrix
 tree ........................ list contents of directories in a tree-like format
 zathura example.pdf ......... PDF Viewer, after open s key to full-screen q key to Quit
 apropos quarry ............... Display Appropriate Commands
+whiptail .................... whiptail --yesno 'Yes or No' 10 40
 chmod ....................... Ch-ange the mod-e (permissions) of a file or directory
                               ¯¯          ¯¯¯
 see ......................... Opens text in less and images in viewer
