@@ -96,6 +96,7 @@ alias seepdf='zathura'
 alias vicheet='vim-cheet-sheet.sh --color=always | less -r'
 alias ebashrc='vi ~/.bashrc'
 alias refbash='source ~/.bashrc'
+alias myapps="aptitude -F' * %p -> %d ' --no-gui --disable-columns search '?and(~i,!?section(libs), !?section(kernel), !?section(devel))"
 alias updg='sudo apt-get update && apt-get upgrade'
 #=========================================================================#
 #   The next functions ACT AS AN ALIAS when added to the ~/.bashrc file   #
