@@ -44,8 +44,6 @@ locate (file name) .......... Find Files/Directories - To update the command sud
 You can also use wildcards to match one or more files, such as "*" (for all files) or "?" (to match one character).
 
 
-
-
 ## A Collection Of Useful BASH Scripts from: 
    https://www.ostechnix.com/collection-useful-bash-scripts-heavy-commandline-users/
 cheat ....................... Linux Commands cheat sheet, pip required
@@ -55,7 +53,15 @@ short ....................... URL Shortener
 ytview ...................... Watch YouTube from Terminal
 
 
- 
+ -- How to Search for a Package --
+You may not always know the name of the package you want to install. In this case, you can use the apt-cache command to search your downloaded package cache (the lists that were download with apt-get update) for a program. This command searches package names and descriptions for the text you specify.
+This command doesn’t require sudo, as it’s just a simple search. However, you can run it with sudo if you like, and it will still work.
+
+apt-cache search sometext
+
+For example, if you wanted to search for packages related to w3m, a text-based web browser for the terminal, you’d run:
+
+apt-cache search w3m
 
 
 
